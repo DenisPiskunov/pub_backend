@@ -1,0 +1,134 @@
+:host ::ng-deep {
+    .table-row-disabled {
+        color: #ccc !important;
+
+        .pi-ban{
+            transform: rotateZ(90deg);
+            padding: 3px;
+        }
+    }
+
+    .invalid-input {
+        border-color: #f44336;
+    }
+
+    .cell-word-wrap {
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    .cell-text-align {
+        white-space: pre-line;
+        text-align: right !important;
+
+        @media (min-width: 961px) {
+            text-align: left !important;
+        }
+    }
+
+    .table-btn {
+        display: flex;
+        justify-content: center;
+
+        @media screen and (max-width: 576px) {
+            width: 100%;
+            flex-wrap: wrap;
+            margin-top: 7px;
+        }
+
+        button {
+            margin-left: 15px;
+
+            @media screen and (max-width: 576px) {
+                width: 100%;
+                margin: 0 0 7px 0;
+            }
+
+        }
+    }
+    .p-progressbar {
+        height: .5rem;
+        background-color: #D8DADC;
+
+        .p-progressbar-value {
+            background-color: #607D8B;
+        }
+    }
+
+    .table-header {
+        display: flex;
+        justify-content: space-between;
+
+        @media screen and (max-width: 576px) {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    .p-datatable.p-datatable-customers {
+        .p-datatable-header {
+            padding: 1rem;
+            text-align: left;
+            font-size: 1.5rem;
+        }
+
+        .p-paginator {
+            padding: 1rem;
+        }
+
+        .p-datatable-thead > tr > th {
+            text-align: left;
+        }
+
+        .p-dropdown-label:not(.p-placeholder) {
+            text-transform: uppercase;
+        }
+    }
+
+    .p-datatable.p-datatable-customers:not(.p-datatable-gridlines) {
+        .p-datatable-tbody > tr > td {
+            cursor: auto;
+        }
+    }
+
+    .p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    :host ::ng-deep {
+        .p-datatable {
+            &.p-datatable-customers {
+                .p-datatable-thead > tr > th,
+                .p-datatable-tfoot > tr > td {
+                    display: none !important;
+                }
+
+                .p-datatable-tbody > tr {
+                    border-bottom: 1px solid var(--surface-d);
+
+                    > td {
+                        text-align: left;
+                        display: flex;
+                        align-items: center;
+                        border: 0 none !important;
+                        width: 100% !important;
+                        float: left;
+                        clear: left;
+
+                        .p-column-title {
+                            text-align: left;
+                            padding: .4rem;
+                            min-width: 30%;
+                            display: inline-block;
+                            margin: -.4rem 1rem -.4rem -.4rem;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

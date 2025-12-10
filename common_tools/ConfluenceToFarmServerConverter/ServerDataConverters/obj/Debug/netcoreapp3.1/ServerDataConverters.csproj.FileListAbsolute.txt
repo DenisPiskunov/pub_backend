@@ -1,0 +1,74 @@
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/ServerDataConverters.deps.json
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/ServerDataConverters.runtimeconfig.json
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/ServerDataConverters.runtimeconfig.dev.json
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/ServerDataConverters.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/ServerDataConverters.pdb
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Atlassian.Jira.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Microsoft.Dynamic.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Microsoft.Scripting.Metadata.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Microsoft.Scripting.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/HtmlAgilityPack.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/IronPython.Modules.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/IronPython.SQLite.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/IronPython.Wpf.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/IronPython.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/JetBrains.Annotations.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/RestSharp.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.CodeDom.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.Drawing.Common.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.Security.Permissions.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.Windows.Extensions.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.AssemblyInfoInputs.cache
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.AssemblyInfo.cs
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.csproj.CoreCompileInputs.cache
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.csproj.CopyComplete
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.dll
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.pdb
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.genruntimeconfig.cache
+/Users/denispiskunov/MINT/fc_ dataconverter/DataConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.csprojAssemblyReference.cache
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/ServerDataConverters.deps.json
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/ServerDataConverters.runtimeconfig.json
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/ServerDataConverters.runtimeconfig.dev.json
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/ServerDataConverters.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/ServerDataConverters.pdb
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Atlassian.Jira.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Microsoft.Dynamic.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Microsoft.Scripting.Metadata.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Microsoft.Scripting.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/HtmlAgilityPack.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/IronPython.Modules.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/IronPython.SQLite.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/IronPython.Wpf.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/IronPython.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/JetBrains.Annotations.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/RestSharp.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.CodeDom.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.Drawing.Common.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.Security.Permissions.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/System.Windows.Extensions.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.csprojAssemblyReference.cache
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.AssemblyInfoInputs.cache
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.AssemblyInfo.cs
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.csproj.CoreCompileInputs.cache
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.csproj.CopyComplete
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.dll
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.pdb
+/Users/denispiskunov/MINT/common_tools/ConfluenceToFarmServerConverter/ServerDataConverters/obj/Debug/netcoreapp3.1/ServerDataConverters.genruntimeconfig.cache

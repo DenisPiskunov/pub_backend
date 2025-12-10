@@ -1,0 +1,7 @@
+POST {{apiURL}}/sign-in
+Content-Type: application/json
+
+{
+  "login": "admin",
+  "password": "admin"
+}

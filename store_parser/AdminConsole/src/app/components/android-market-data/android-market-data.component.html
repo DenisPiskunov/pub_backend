@@ -1,0 +1,474 @@
+<app-top-menu></app-top-menu>
+<div class="container-fluid">
+    <div class="row">
+        <app-left-menu>Loading left-menu...</app-left-menu>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <p-dataGrid [value]="appMarketDataList" [paginator]="true" [rows]=appMarketDataPerPage
+                        [rowsPerPageOptions]="[10, 20,50,100, 200, 500, 1000]" (onPage)="onPage($event)">
+                <p-header>
+                    <h4>
+                        Выгрузка для {{selectedPlatform}}.
+                    </h4>
+                    <h6> Всего приложений: [ {{appsMarketDataTotalCount}} ] </h6>
+                </p-header>
+                <ng-template let-appMarketData pTemplate="item">
+                    <div style="padding: 3px; text-align: center; word-wrap: break-word;" class="ui-g-12 ui-md-3">
+                        <p-panel>
+                            <p-header>
+                                <div style="min-height: 3em;">
+                                    <h5>{{appMarketData.title}}</h5>
+                                </div>
+                            </p-header>
+                            <img src={{appMarketData.icon_72}} width="72">
+                            <hr class="ui-widget-content" style="border-top:0">
+                            <div style="min-height: 3em;" class="dark"><a href="{{appMarketData.market_url}}"
+                                                                          target="_blank">{{appMarketData.market_url}}</a>
+                            </div>
+                            <div class="col-md-12" style="height: 1em;"></div>
+                            <div class="col-md-12">
+                                <div class="col-md-4 align-left nopadding-h">Категория:</div>
+                                <div class="col-md-8 align-left nopadding-h"><strong>{{appMarketData.category}}</strong>
+                                </div>
+
+                                <div class="col-md-4 align-left nopadding-h">ID/Package:</div>
+                                <div class="col-md-8 align-left nopadding-h">
+                                    <strong>{{appMarketData.package_name}}</strong></div>
+
+                                <div *ngIf="appMarketData.short_desc" class="col-md-4 align-left nopadding-h">Краткое
+                                    описание:
+                                </div>
+                                <div class="col-md-8 align-left nopadding-h">
+                                    <strong>{{appMarketData.short_desc}}</strong></div>
+
+
+                            </div>
+
+                            <div class="align-left"></div>
+                            <hr class="ui-widget-content" style="border-top:0">
+                            <button pButton type="button" (click)="selectAppMarketData(appMarketData)" label="Подробнее"
+                                    icon="fa-search" iconPos="right">
+                            </button>
+                        </p-panel>
+                    </div>
+                </ng-template>
+            </p-dataGrid>
+            <div [hidden]="hideProgress" class="ui-g-12 text-center">
+                <p-progressSpinner></p-progressSpinner>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-sidebar [(visible)]="displayDialog" [fullScreen]="true" [blockScroll]="true" [baseZIndex]="10000"
+           (onHide)=onDialogHide() class="ui-sidebar-close-dark">
+    <div class="ui-grid-col-12" style="text-align: center; font-weight: bold">
+        <button pButton type="button" (click)="onDialogHide()" label="Закрыть"></button>
+        <div class="ui-grid-col-12" style="height: 1.5em;"></div>
+    </div>
+    <div class="ui-grid ui-grid-pad mygrid-wrapper-div" *ngIf="fullAppMarketData"
+         style="font-size:14px;text-align:left;padding:20px;height: 100%">
+        <div class="dark" style="height: 25%">
+            <div class="flex-cell-4">
+                <div class="ui-grid-col-12" style="text-align:center"><img src="{{fullAppMarketData.icon}}"
+                                                                           class="appImageLarge"></div>
+                <div class="ui-grid-col-12" style="text-align:center">
+                    <div class="ui-grid-col-12" style="height: 1.5em;"></div>
+                    <button pButton type="button" (click)="showConfirmMarkAsInvalidAppDialog()" label="Удалить"></button>
+                    <div class="ui-grid-col-12" style="height: 1.5em;"></div>
+                </div>
+            </div>
+            <div class="flex-cell-5">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">A deep link to the app page
+                        on Google Play:
+                    </div>
+                    <div class="ui-grid-col-8 dark" style="text-align: left"><a href="{{fullAppMarketData.market_url}}"
+                                                                            target="_blank">{{fullAppMarketData.market_url}}</a>
+                    </div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">The app package name:</div>
+                    <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.package_name}}</div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">App title:</div>
+                    <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.title}}</div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">The app category:</div>
+                    <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.category}}</div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+                <div *ngIf="fullAppMarketData.description" class="ui-grid-row">
+                    <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Full app description:</div>
+                    <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.description}}</div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+
+                <div *ngIf="fullAppMarketData.short_desc" class="ui-grid-row">
+                    <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Short app description:</div>
+                    <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.short_desc}}</div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 1em;"></div>
+            </div>
+        </div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.i18n_lang && fullAppMarketData.i18n_lang.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">App languages:
+            </div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.i18n_lang.join('; ')}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.app_availability && fullAppMarketData.app_availability.available_in.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Available in:</div>
+            <div class="ui-grid-col-8"
+                 style="text-align: left">{{fullAppMarketData.app_availability.available_in.join('; ')}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.app_availability && fullAppMarketData.app_availability.not_available_in.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Not available in:</div>
+            <div class="ui-grid-col-8"
+                 style="text-align: left">{{fullAppMarketData.app_availability.not_available_in.join('; ')}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.app_availability && fullAppMarketData.app_availability.availability_unknown.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Availability unknown:</div>
+            <div class="ui-grid-col-8"
+                 style="text-align: left">{{fullAppMarketData.app_availability.availability_unknown.join('; ')}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-col-12 ui-grid-row" *ngIf="fullAppMarketData.screenshots && fullAppMarketData.screenshots.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Screenshots:</div>
+        </div>
+        <div *ngIf="fullAppMarketData.screenshots && fullAppMarketData.screenshots.length > 0">
+            <div *ngFor="let screenshot of fullAppMarketData.screenshots; index as i" style="text-align: left" class="ui-grid-col-12 ui-grid-row">
+                <div class="ui-grid-col-3">{{i + 1}}</div>
+                <div class="ui-grid-col-9">
+                    <img src="{{screenshot}}" style="max-height: 400px">
+                    <div class="ui-grid-col-12" style="height: 0.5em;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.market_source">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Market Source:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.market_source}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.market_status">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Status on the market:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.market_status}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.cat_key">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">The app primary category key:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.cat_key}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.cat_keys && fullAppMarketData.cat_keys.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">All app category keys:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.cat_keys.join('; ')}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.cat_type">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">0 - Non-Game, 1 - Game:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.cat_type}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.content_rating">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Content rating:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.content_rating}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.developer">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">App developer name:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.developer}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.email">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Email for the developer:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.email}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.physical_address">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Address of the developer: </div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.physical_address}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.what_is_new">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">'What is new':</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.what_is_new}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.featured_graphic">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Featured graphic of the app:</div>
+            <div class="ui-grid-col-8 dark" style="text-align: left"><a href="{{fullAppMarketData.featured_graphic}}" target="_blank">{{fullAppMarketData.featured_graphic}}</a></div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.promo_video">
+            <div class="ui-grid-col-5" style="text-align: left; font-weight: bold"> App video on Youtube:</div>
+            <div class="ui-grid-col-7 dark" style="text-align: left"><a href="{{fullAppMarketData.promo_video}}" target="_blank">{{fullAppMarketData.promo_video}}</a></div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.min_sdk">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Min required Android version:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.min_sdk}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.downloads">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Downloads range:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.downloads}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.downloads_min">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Lower bound downloads:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.downloads_min}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.downloads_max">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Upper bound downloads:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.downloads_max}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.market_update">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">The last updte time:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.market_update.substring(0, 10)}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.unpublished_timestamp">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Unpublished date:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.unpublished_timestamp.substring(0, 10)}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.rating">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">App rating:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.rating}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.size">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">App size:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.size / 1000000}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.version">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">App version:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.version}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.website">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">App website:</div>
+            <div class="ui-grid-col-8 dark" style="text-align: left"><a href="{{fullAppMarketData.website}}" target="_blank">{{fullAppMarketData.website}}</a>
+            </div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.number_ratings">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Ratings:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.number_ratings}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.ratings_1">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Ratings with 1 star:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.ratings_1}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.ratings_2">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Ratings with 2 stars:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.ratings_2}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.ratings_3">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Ratings with 3 stars:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.ratings_3}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.ratings_4">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Ratings with 4 stars:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.ratings_4}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.ratings_5">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Ratings with 5 stars:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.ratings_5}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.interactive_elements && fullAppMarketData.interactive_elements.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Interactive elements:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.interactive_elements.join('; ')}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.price_currency">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold"> Currency:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.price_currency}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.price_numeric">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Price:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.price_numeric}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.price">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Price with currency:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.price}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.price_i18n_countries && fullAppMarketData.price_i18n_countries.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Country-specific pricing:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.price_i18n_countries.join('; ')}}</div>
+        </div>
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.iap">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">In-app purchases:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.iap}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.iap_min">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Min IAP price:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.iap_min}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.iap_max">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Max IAP price:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.iap_max}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.lang">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">App metadata language:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.lang}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.from_developer && fullAppMarketData.from_developer.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Other developers apps:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.from_developer.join('; ')}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.similar && fullAppMarketData.similar.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Similar apps:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.similar.join('; ')}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-col-12 ui-grid-row" *ngIf="fullAppMarketData.similar && fullAppMarketData.similar.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">Links to similar apps:</div>
+            <div class="ui-grid-col-8" style="text-align: left"></div>
+        </div>
+        <div *ngIf="fullAppMarketData.similar && fullAppMarketData.similar.length > 0">
+            <div *ngFor="let appPkg of fullAppMarketData.similar; index as i" style="text-align: left" class="ui-grid-col-12 ui-grid-row">
+                <div class="ui-grid-col-3">{{i + 1}}</div>
+                <div class="ui-grid-col-9 dark">
+                    <a href="https://play.google.com/store/apps/details?id={{appPkg}}" target="_blank">
+                        https://play.google.com/store/apps/details?id={{appPkg}}</a>
+                    <div class="ui-grid-col-12" style="height: 0.5em;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.permissions && fullAppMarketData.permissions.length > 0">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">List of permission:</div>
+            <div class="ui-grid-col-8" style="text-align: left">{{fullAppMarketData.permissions.join('; ')}}</div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 1em;"></div>
+
+        <div class="ui-grid-row" *ngIf="fullAppMarketData.privacy_policy">
+            <div class="ui-grid-col-4" style="text-align: left; font-weight: bold">App privacy policy:</div>
+            <div class="ui-grid-col-8 dark" style="text-align: left"><a href="{{fullAppMarketData.privacy_policy}}" target="_blank">{{fullAppMarketData.privacy_policy}}</a>
+            </div>
+            <div class="col-md-12" style="height: 1em;"></div>
+        </div>
+        <div class="ui-grid-col-12" style="height: 4em;"></div>
+
+        <!--<div class="div-75x100">-->
+        <!--<p-tabView>-->
+        <!--<p-tabPanel header="Описание">-->
+        <!--<div style="margin-bottom: 2em">-->
+        <!--<div *ngIf="fullAppMarketData.description" class="ui-grid-row">-->
+        <!--<div class="ui-grid-col-12" style="text-align: left">{{fullAppMarketData.description}}</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</p-tabPanel>-->
+        <!--<p-tabPanel header="Скриншоты" *ngIf="fullAppMarketData.screenshots">-->
+        <!--<div style="margin-bottom: 2em">-->
+        <!--<p-dataList [value]="fullAppMarketData.screenshots" [paginator]="true" [rows]="1">-->
+        <!--<ng-template let-screenshot pTemplate="item">-->
+        <!--<div class="ui-g">-->
+        <!--<div class="ui-g-12">-->
+        <!--<div *ngIf="fullAppMarketData.screenshots.length > 0" style="text-align: center;">-->
+        <!--<img src="{{screenshot}}" style="max-height: 500px">-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</ng-template>-->
+        <!--</p-dataList>-->
+        <!--</div>-->
+        <!--</p-tabPanel>-->
+        <!--</p-tabView>-->
+        <!--</div>-->
+
+        <p-dialog [(visible)]="displayDeleteConfirmDialog" [responsive]="true" showEffect="fade" [modal]="true"
+                  (onHide)="hideConfirmMarkAsInvalidAppDialog()">
+            <div class="ui-grid ui-grid-responsive ui-fluid">
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+                Удалить приложение?
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+            </div>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-check" (click)="markAppAsDeleted()" label="Да"></button>
+                    <button type="button" pButton icon="fa-times" (click)="hideConfirmMarkAsInvalidAppDialog()"
+                            label="Нет"></button>
+                </div>
+            </p-footer>
+        </p-dialog>
+
+
+    </div>
+</p-sidebar>

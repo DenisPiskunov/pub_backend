@@ -1,0 +1,46 @@
+.exception-body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+@media (max-width: 640px) {
+  .exception-body .exception-content .exception-title {
+    font-size: 72px;
+  }
+}
+.exception-body .exception-content .exception-title {
+  font-size: 112px;
+  font-weight: 700;
+  color: #ffffff;
+
+}
+.exception-body .exception-content .exception-detail {
+  font-weight: 700;
+  color: #ffffff;
+  margin: 10px 0 0 0;
+}
+.exception-body .exception-content > a {
+  margin-top: 40px;
+  width: 250px;
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  transition: background-color 0.2s;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.exception-body .exception-content > a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.exception-body.success {
+  background-image: url("img/bg-success.jpg");
+}

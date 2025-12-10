@@ -1,0 +1,66 @@
+{
+  "name": "auth-server-console",
+  "version": "12.2.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "start-stage": "ng serve --configuration=staging",
+    "prod": "ng build --prod",
+    "stage": "ng build --configuration=staging",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~12.2.15",
+    "@angular/cdk": "~11.0.0",
+    "@angular/common": "~12.2.15",
+    "@angular/compiler": "~12.2.15",
+    "@angular/core": "~12.2.15",
+    "@angular/forms": "~12.2.15",
+    "@angular/platform-browser": "~12.2.15",
+    "@angular/platform-browser-dynamic": "~12.2.15",
+    "@angular/router": "~12.2.15",
+
+    "@fullcalendar/core": "4.1.0",
+    "@fullcalendar/daygrid": "4.1.0",
+    "@fullcalendar/interaction": "4.1.0",
+    "@fullcalendar/timegrid": "4.1.0",
+
+      "chart.js": "^3.3.2",
+      "primeflex": "2.0.0",
+      "primeicons": "4.1.0",
+      "primeng": "12.2.0",
+      "prismjs": "1.9.0",
+
+      "rxjs": "^6.6.7",
+      "tslib": "^2.0.0",
+      "web-animations-js": "^2.3.2",
+      "zone.js": "~0.11.4",
+
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~12.2.14",
+    "@angular/cli": "~12.2.14",
+    "@angular/compiler-cli": "~12.2.15",
+    "@types/jasmine": "~3.6.0",
+    "@types/jasminewd2": "~2.0.8",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.0",
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~6.3.9",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~3.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "protractor": "~7.0.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~4.3.5"
+  }
+}

@@ -1,0 +1,7 @@
+ALTER TABLE account
+    ADD COLUMN is_deleted BOOLEAN DEFAULT FALSE;
+ALTER TABLE account
+    ADD COLUMN is_blocked BOOLEAN DEFAULT FALSE;
+
+INSERT INTO version (version)
+VALUES ('1.0.1-1');

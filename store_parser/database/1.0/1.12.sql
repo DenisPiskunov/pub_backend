@@ -1,0 +1,6 @@
+ALTER TABLE application ALTER COLUMN title TYPE VARCHAR(512);
+ALTER TABLE application ALTER COLUMN url TYPE VARCHAR(512);
+ALTER TABLE application ALTER COLUMN icon_url TYPE VARCHAR(512);
+ALTER TABLE application ADD full_data TEXT NULL;
+
+INSERT INTO version (version) VALUES ('1.12');

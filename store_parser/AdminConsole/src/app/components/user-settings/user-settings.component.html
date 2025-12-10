@@ -1,0 +1,82 @@
+<app-top-menu></app-top-menu>
+<div class="container-fluid">
+    <app-left-menu>Loading left-menu...</app-left-menu>
+    <div class="ui-md-offset-2">
+        <p-blockUI [blocked]="blockedDocument"></p-blockUI>
+        <div class="ui-g-12">
+            <p-dataTable [value]="userDetailsList" selectionMode="single" [(selection)]="selectedUser"
+                         (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="10" [responsive]="true">
+                <p-column field="username" header="Имя пользователя" [sortable]="true"></p-column>
+                <p-footer>
+                    <div class="ui-helper-clearfix" style="width:100%">
+                        <button type="button" pButton icon="fa-plus" style="float:left" (click)="showAddDialog()"
+                                label="Добавить"></button>
+                    </div>
+                </p-footer>
+            </p-dataTable>
+        </div>
+
+        <p-dialog header="Информация о пользователе" [(visible)]="displayDetailsDialog" [responsive]="true" showEffect="fade"
+                  [modal]="true" (onHide)="onDetailsDialogHide()">
+            <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="newUser">
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="username">Имя</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="username" [(ngModel)]="newUser.username" (change)="onChangeUserDetails()" (keydown)="onChangeUserDetails()"/></div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label>Роль</label></div>
+                    <div class="ui-grid-col-8"><p-dropdown [options]="rolesMap" [(ngModel)]="newUser.roles" (onChange)="onChangeUserDetails()" autoWidth="false" [style]="{'width':'100%'}"></p-dropdown></div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="enabled">Разрешен</label></div>
+                    <div class="ui-grid-col-8"><p-checkbox id="enabled" [(ngModel)]="newUser.enabled" (onChange)="onChangeUserDetails()" binary="true"></p-checkbox></div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 3em"></div>
+            </div>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-close" (click)="onDeleteUser()" label="Удалить"></button>
+                    <button type="button" pButton icon="fa-check" (click)="onSaveUser()" label="Сохранить" [disabled]="!isUserDetailsChanged"></button>
+                </div>
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+                <div class="ui-dialog-buttonpane ui-helper-clearfix" *ngIf="!addingUser">
+                    <button type="button" pButton icon="fa-check" (click)="onShowChangePasswordDialog()" label="Задать пароль" [disabled]="isUserDetailsChanged"></button>
+                </div>
+            </p-footer>
+
+        </p-dialog>
+
+        <p-dialog [(visible)]="displayPasswordDialog" [responsive]="true" showEffect="fade" [modal]="true" (onHide)="onPasswordDialogHide()">
+            <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="newUser">
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="password">Пароль</label></div>
+                    <div class="ui-grid-col-8"><input type="password" pPassword id="password" [(ngModel)]="pass"/></div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+            </div>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-check" (click)="onChangePassword()" label="Сохранить пароль"></button>
+                </div>
+            </p-footer>
+        </p-dialog>
+
+        <p-dialog [(visible)]="hasError">
+            {{errorText}}
+            <p-footer>
+                <button type="button" pButton icon="fa-check" (click)="onCloseErrorDialog()" label="OK"></button>
+            </p-footer>
+        </p-dialog>
+
+        <div [hidden]="hideProgress" class="ui-g-12 text-center">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
+    </div>
+</div>

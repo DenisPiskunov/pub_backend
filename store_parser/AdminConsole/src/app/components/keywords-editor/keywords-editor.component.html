@@ -1,0 +1,39 @@
+<app-top-menu></app-top-menu>
+<div class="container-fluid">
+    <app-left-menu>Loading left-menu...</app-left-menu>
+    <div class="ui-md-offset-2">
+        <p-blockUI [blocked]="blockedDocument"></p-blockUI>
+        <form class="form-editor-words" #keywordsForm="ngForm" novalidate>
+            <div class="ui-g-12">
+                <h5>Ключевые слова:</h5>
+                <p-chips name="gambling-keys" [(ngModel)]="appGamblingKeys" placeholder="Добавить..."
+                         (onAdd)="onAddGamblingKey($event.value)"
+                         (onRemove)="onRemoveGamblingKey($event.value)"
+                         allowDuplicate="false" addOnTab="true" addOnBlur="true"></p-chips>
+                <div style="height: 1em"></div>
+                <button pButton type="button" label="Сохранить изменения" icon="fa-check"
+                        iconPos="right" (click)="onSaveChangesGamblingKeys()" [disabled]="!gamblingListChanged"></button>
+                <button pButton type="button" label="Отменить изменения" class="ui-button-secondary" icon="fa-close"
+                        iconPos="right"
+                        (click)="onRevertGamblingKeys()" [disabled]="!gamblingListChanged"></button>
+            </div>
+            <div style="height: 3em" class="ui-g-12"></div>
+            <div class="ui-g-12">
+                <h5>Стоп-слова:</h5>
+                <p-chips name="excluded-keys" [(ngModel)]="excludedWords" placeholder="Добавить..."
+                         (onAdd)="onAddExcludedWord($event.value)"
+                         (onRemove)="onRemoveExcludedWord($event.value)"
+                         allowDuplicate="false" addOnTab="true" addOnBlur="true"></p-chips>
+                <div style="height: 1em"></div>
+                <button pButton type="button" label="Сохранить изменения"  icon="fa-check"
+                        iconPos="right" (click)="onSaveChangesExcludedWords()" [disabled]="!excludedWordsListChanged"></button>
+                <button pButton type="button" label="Отменить изменения" class="ui-button-secondary" icon="fa-close"
+                        iconPos="right"
+                        (click)="onRevertExcludedWords()" [disabled]="!excludedWordsListChanged"></button>
+            </div>
+        </form>
+        <div [hidden]="hideProgress" class="ui-g-12 text-center">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
+    </div>
+</div>

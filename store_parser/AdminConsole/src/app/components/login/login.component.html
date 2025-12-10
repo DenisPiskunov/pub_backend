@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="center-block ">
+            <form class="form-signin" (ngSubmit)="f.form.valid && onLogin()" #f="ngForm" novalidate>
+                <h2 class="form-signin-heading">Авторизация</h2>
+                <div class="form-group" [ngClass]="{ 'has-error': f.hideProgress && !username.valid }">
+                    <input type="text" name="username" class="form-control" placeholder="Имя пользователя" [(ngModel)]="user.username" #username="ngModel" required>
+                    <div *ngIf="f.hideProgress && !username.valid" class="help-block">Имя пользователя не указано</div>
+                </div>
+                <div class="form-group"  [ngClass]="{ 'has-error': f.hideProgress && !password.valid }">
+                    <input type="password" name="password" class="form-control" placeholder="Пароль" [(ngModel)]="user.password" #password="ngModel" required>
+                    <div *ngIf="f.hideProgress && !password.valid" class="help-block">Пароль не указан</div>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Вход</button>
+                <br>
+                <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+            </form>
+        </div>
+    </div>
+</div>

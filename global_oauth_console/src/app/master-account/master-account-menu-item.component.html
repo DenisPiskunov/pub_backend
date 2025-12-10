@@ -1,0 +1,88 @@
+<div class="p-grid">
+    <div class="card p-fluid" style="width: 100%">
+        <div class="p-col-12">
+            <p-table [value]="accounts" [paginator]="true" [rows]="10"
+                     [rowsPerPageOptions]="[10,15,25,50,100]" [lazy]="true"
+                     (onLazyLoad)="loadAccounts($event)"
+                     [lazyLoadOnInit]="false" [totalRecords]="totalCount"
+                     styleClass="p-datatable-customers p-datatable-gridlines p-datatable-striped p-datatable-sm">
+                <ng-template pTemplate="caption">
+                    <div translate class="p-d-flex p-jc-md-between table-header">
+                        left-menu.menu-item.master-account.table.header
+                        <div class="table-btn">
+                            <button *ngIf="uiElementAccessDecisionManager.hasAccessToCreate()" pButton
+                                    (click)="createAccount()" class="p-button-success"
+                                    [label]="'common.menu-item.button.new' | translate" icon="pi pi-plus"></button>
+                            <button pButton (click)="paginate()" [label]="'common.menu-item.button.update' | translate" icon="pi pi-refresh"></button>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th translate style="width: 10em">left-menu.menu-item.master-account.table.name</th>
+                        <th style="width: 10em">Email</th>
+                        <th translate style="width: 5em">common.menu-item.settings</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-account>
+                    <tr [pSelectableRow]="account" [ngClass]="{'table-row-disabled': account.isDeleted}">
+                        <td>
+                            <span translate class="p-column-title">left-menu.menu-item.master-account.table.name</span>
+                            <div>{{account.login}}</div>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Email</span>
+                            <div>{{account.email}}</div>
+                        </td>
+                        <td *ngIf="!account.isDeleted">
+                            <span translate class="p-column-title">common.menu-item.settings</span>
+                            <button *ngIf="uiElementAccessDecisionManager.hasAccessToEdit()" pButton
+                                    (click)="editAccount(account.uuid)" [disabled]="account.isBlocked"
+                                    icon="pi pi-pencil"
+                                    class="p-mr-2 p-mb-2" [pTooltip]="'common.menu-item.tooltip.edit' | translate"
+                                    tooltipPosition="bottom"></button>
+                            <button *ngIf="uiElementAccessDecisionManager.hasAccessToBlock() && !account.isBlocked"
+                                    pButton (click)="confirmBlocking(account)" icon="pi pi-fw pi-lock"
+                                    class="p-button-danger p-mr-2 p-mb-2"
+                                    [pTooltip]="'common.menu-item.tooltip.block' | translate"
+                                    tooltipPosition="bottom"></button>
+                            <button *ngIf="uiElementAccessDecisionManager.hasAccessToDelete()" pButton
+                                    (click)="confirmDeleting(account)" icon="pi pi-fw pi-trash"
+                                    class="p-button-secondary p-mr-2 p-mb-2"
+                                    [pTooltip]="'common.menu-item.tooltip.delete' | translate"
+                                    tooltipPosition="bottom"></button>
+                        </td>
+                        <td translate *ngIf="account.isDeleted">
+                            <span style="padding-right: 3px" class="pi pi-fw pi-ban"></span>
+                            common.menu-item.deleted-item
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td translate colspan="3">left-menu.menu-item.master-account.table.empty</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+<app-popup-master-account (afterSave)="afterSave()"></app-popup-master-account>
+
+<p-confirmDialog [header]="'confirm-dialog.master-account.delete.title' | translate"
+                 [key]="deleteConfirmDialogKey" icon="pi pi-exclamation-triangle"
+                 [message]="'confirm-dialog.master-account.delete.text' | translate"
+                 [acceptLabel]="'common.confirm-dialog.button.accept' | translate"
+                 [rejectLabel]="'common.confirm-dialog.button.reject' | translate"
+                 [style]="{width: '425px'}" acceptButtonStyleClass="p-button-text"
+                 rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+<p-confirmDialog [header]="'confirm-dialog.master-account.block.title' | translate"
+                 [key]="blockConfirmDialogKey" icon="pi pi-exclamation-triangle"
+                 [message]="'confirm-dialog.master-account.block.text' | translate"
+                 [acceptLabel]="'common.confirm-dialog.button.accept' | translate"
+                 [rejectLabel]="'common.confirm-dialog.button.reject' | translate"
+                 [style]="{width: '425px'}" acceptButtonStyleClass="p-button-text"
+                 rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+
+

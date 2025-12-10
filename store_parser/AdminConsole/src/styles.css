@@ -1,0 +1,451 @@
+body, html {
+    height: 100%;
+}
+
+nav.sidebar, .main {
+    -webkit-transition: margin 200ms ease-out;
+    -moz-transition: margin 200ms ease-out;
+    -o-transition: margin 200ms ease-out;
+    transition: margin 200ms ease-out;
+}
+
+.main {
+    padding: 10px 10px 0 10px;
+}
+
+.mygrid-wrapper-div {
+    overflow: scroll;
+    height: 100%;
+}
+
+@media  (min-width: 200px) {
+    .sidebar {
+        padding: 30px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+
+    .flex-cell-2 {
+        width: 100%;
+    }
+
+    .flex-cell-3 {
+        width: 100%;
+    }
+
+    .flex-cell-4 {
+        width: 100%;
+    }
+
+    .flex-cell-5 {
+        width: 100%;
+    }
+
+    .flex-cell-6 {
+        width: 100%;
+    }
+
+    .top-menu {
+        visibility: hidden;
+    }
+
+    .navbar-fixed-top {
+        visibility: hidden;
+    }
+
+    .appImageLarge {
+        width: 90px;
+    }
+
+    .appScreenshot {
+        max-height: 150px;
+    }
+}
+
+@media (min-width: 765px) {
+    .main {
+        position: absolute;
+        width: calc(100% - 40px);
+        margin-left: 40px;
+        float: right;
+    }
+
+    nav.sidebar:hover + .main {
+        margin-left: 200px;
+    }
+
+    nav.sidebar.navbar.sidebar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+        margin-left: 0px;
+    }
+
+    nav.sidebar .navbar-brand, nav.sidebar .navbar-header {
+        text-align: center;
+        width: 100%;
+        margin-left: 30px;
+    }
+
+    nav.sidebar a {
+        padding-right: 13px;
+    }
+
+    nav.sidebar .navbar-nav > li:first-child {
+        border-top: 1px #e5e5e5 solid;
+    }
+
+    nav.sidebar .navbar-nav > li {
+        border-bottom: 1px #e5e5e5 solid;
+    }
+
+    nav.sidebar .navbar-nav .open .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid {
+        padding: 0 0px 0 0px;
+    }
+
+    /*
+     * Base structure
+     */
+    /* Move down content because we have a fixed navbar that is 50px tall */
+    body {
+        padding-top: 50px;
+    }
+
+    /*
+     * Global add-ons
+     */
+    .sub-header {
+        padding-bottom: 10px;
+
+    }
+
+    /*
+     * Top navigation
+     * Hide default border to remove 1px line.
+     */
+    .navbar-fixed-top {
+        border: 0;
+        visibility: visible;
+    }
+
+    /*
+     * Sidebar
+     */
+    /* Hide for mobile, show later */
+    .sidebar {
+        display: none;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 50px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+
+
+    /* Sidebar navigation */
+    .nav-sidebar {
+        margin-right: -21px; /* 20px padding + 1px border */
+        margin-bottom: 20px;
+        margin-left: -20px;
+    }
+
+    .nav-sidebar > li > a {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .nav-sidebar > .active > a,
+    .nav-sidebar > .active > a:hover,
+    .nav-sidebar > .active > a:focus {
+        color: #fff;
+        background-color: #428bca;
+    }
+
+    /*
+     * Main content
+     */
+    .main {
+        padding: 20px;
+    }
+
+    @media (min-width: 768px) {
+        .main {
+            padding-right: 40px;
+            padding-left: 40px;
+        }
+
+        .top-menu {
+            visibility: visible;
+        }
+
+
+        .appImageLarge {
+            width: 120px;
+        }
+
+        .appScreenshot {
+            max-height: 200px;
+        }
+    }
+    .main .page-header {
+        margin-top: 0;
+    }
+
+    /*
+     * Placeholder dashboard ideas
+     */
+    .placeholders {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .placeholders h4 {
+        margin-bottom: 0;
+    }
+
+    .placeholder {
+        margin-bottom: 20px;
+    }
+
+    .placeholder img {
+        display: inline-block;
+        border-radius: 50%;
+    }
+
+    nav.sidebar {
+        width: 200px;
+        height: 100%;
+        margin-left: -160px;
+        float: left;
+        margin-bottom: 0px;
+    }
+
+    nav.sidebar li {
+        width: 100%;
+    }
+
+    nav.sidebar:hover {
+        margin-left: 0px;
+    }
+
+    .forAnimate {
+        opacity: 0;
+    }
+
+
+    .flex-cell-2 {
+        width: 33%;
+    }
+
+    .flex-cell-3 {
+        width: 100%;
+    }
+
+    .flex-cell-4 {
+        width: 100%;
+    }
+
+    .flex-cell-5 {
+        width: 100%;
+    }
+
+    .flex-cell-6 {
+        width: 33%;
+    }
+
+
+    .top-menu {
+        visibility: visible;
+    }
+
+
+    .appImageLarge {
+        width: 120px;
+    }
+
+    .appScreenshot {
+        max-height: 200px;
+    }
+}
+
+@media (min-width: 300px) {
+    .flex-cell-3 {
+        width: 33%;
+    }
+}
+@media (min-width: 766px) {
+    .flex-cell-3 {
+        width: 100%;
+    }
+}
+@media (min-width: 1001px) {
+    .flex-cell-3 {
+        width: 33%;
+    }
+}
+
+@media (min-width: 1330px) {
+
+    .main {
+        width: calc(100% - 200px);
+        margin-left: 200px;
+    }
+
+    nav.sidebar {
+        margin-left: 0px;
+        float: left;
+    }
+
+    nav.sidebar .forAnimate {
+        opacity: 1;
+    }
+
+    .flex-cell-2 {
+        width: 33%;
+    }
+
+    .flex-cell-3 {
+        width: 33%;
+    }
+
+    .flex-cell-4 {
+        width: 16%;
+    }
+
+    .flex-cell-5 {
+        width: 84%;
+    }
+
+    .flex-cell-6 {
+        width: 33%;
+    }
+
+    .top-menu {
+        visibility: visible;
+    }
+
+    .navbar-fixed-top {
+        visibility: visible;
+    }
+    .appImageLarge {
+        width: 175px;
+    }
+
+    .appScreenshot {
+        max-height: 500px;
+    }
+}
+
+nav.sidebar .navbar-nav .open .dropdown-menu > li > a:hover, nav.sidebar .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #3e3e3e;
+    background-color: transparent;
+}
+
+nav:hover .forAnimate {
+    opacity: 1;
+}
+
+section {
+    padding-left: 15px;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.flex-cell-2,
+.flex-cell-3,
+.flex-cell-4,
+.flex-cell-5,
+.flex-cell-6 {
+    float: left;
+    box-sizing: border-box;
+    padding: 0.5em;
+}
+
+.div-75x100 {
+    overflow:auto;
+    height: 75%;
+    width: 100%
+}
+
+.sidebar {
+    background-color: #414550;
+}
+
+.navbar {
+    background-color: #414550;
+}
+
+.submenu {
+    background-color: #c95864;
+}
+
+.nav > li > a {
+    color: #dfdfdf;
+    text-decoration: none;
+}
+
+.nav > li > a:focus,
+.nav > li > a:hover {
+    background-color: #c95864;
+    color: #dfdfdf;
+    text-decoration: none;
+}
+
+a {
+    color: #dfdfdf;
+    font-size: 13px;
+}
+
+a:hover, a:focus {
+    color: #8f8f8f;
+    text-decoration: none;
+}
+
+.chips-input {
+    width: 800px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.dark a {
+    color: #202020;
+    font-size: 13px;
+}
+
+.nopadding-h {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+
+
+

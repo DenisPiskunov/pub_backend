@@ -1,0 +1,4 @@
+2022-03-18 14:34:56,696 INFO ru.mint.dbupdater.MainKt [main] ===>>> Current DB version: 1.2.0-11
+2022-03-18 14:35:46,636 INFO ru.mint.dbupdater.MainKt [main] ===>>> DB up to date!
+2022-03-18 14:36:07,030 INFO ru.mint.dbupdater.MainKt [main] ===>>> Current DB version: 1.2.0-11
+2022-03-18 14:36:41,025 INFO ru.mint.dbupdater.MainKt [main] ===>>> Preparing query from file [./database/1.2.0/1.2.0-11.sql]

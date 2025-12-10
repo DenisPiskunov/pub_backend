@@ -1,0 +1,29 @@
+<app-top-menu></app-top-menu>
+<div class="container-fluid">
+    <app-left-menu>Loading top-menu...</app-left-menu>
+    <div class="ui-md-offset-2">
+        <p-blockUI [blocked]="blockedDocument"></p-blockUI>
+        <p-messages [(value)]="msgs"></p-messages>
+        <form class="form-adding-app" (ngSubmit)="addingForm.form.valid && onAddApplications()" #addingForm="ngForm"
+              novalidate>
+            <div class="ui-g-10"
+                 [ngClass]="{ 'has-error': addingForm.submitted && (!appIDList || appIDList.length == 0)}">
+                <h4>Список ID:</h4>
+                <p-chips name="apps" [(ngModel)]="appIDList" required (onAdd)="onIdListChanged()"
+                         (onRemove)="onIdListChanged()" addOnTab="true" addOnBlur="true"></p-chips>
+                <p-message class="ui-g-12" severity="error" text="Список ID не указан."
+                           *ngIf="addingForm.submitted && (!appIDList || appIDList.length == 0) "></p-message>
+                <div style="height: 1em" class="ui-g-12"></div>
+                <button pButton type="submit" label="Добавить в обработку" icon="fa-check"
+                        iconPos="right" [disabled]="!idListChanged"></button>
+                <button pButton type="button" label="Сброс" class="ui-button-secondary" icon="fa-close" iconPos="right"
+                        (click)="resetControls();" [disabled]="!idListChanged"></button>
+            </div>
+        </form>
+        <div [hidden]="hideProgress" class="ui-g-12 text-center">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
+
+
+    </div>
+</div>

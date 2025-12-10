@@ -1,0 +1,58 @@
+<app-top-menu></app-top-menu>
+<div class="container-fluid">
+    <app-left-menu>Loading left-menu...</app-left-menu>
+    <div class="ui-md-offset-2">
+        <div class="ui-g-12">
+            <p-dataTable [value]="appsCategories" [(selection)]="selectedCategory" [paginator]="true" [rows]=categoriesPerPage [rowsPerPageOptions]="[10,20,50,100]" [responsive]="true"
+                         (onPage)="onPage($event)"  (onRowSelect)="onRowSelect($event)">
+                <p-column field="platform" header="Платформа" [sortable]="true"></p-column>
+                <p-column field="key" header="Код категории" [sortable]="true"></p-column>
+                <p-column field="name" header="Имя категории" [sortable]="true"></p-column>
+                <p-column field="search" header="Искать в этой категории" [sortable]="true">
+                    <template let-col let-row="rowData" let-index="rowIndex"  pTemplate="body">
+                        <span><p-checkbox [(ngModel)]="row.search"binary="true" (onChange)="onCheckBoxClick($event)"></p-checkbox></span>
+                    </template>
+                </p-column>
+                <p-footer>
+                    <button type="button" pButton icon="fa-check" (click)="onUpdateAppsCategories()" label="Сохранить изменения" [disabled]="!isAppsCategoriesChanged"></button>
+                </p-footer>
+            </p-dataTable>
+        </div>
+
+        <p-dialog header="Категория приложения" [(visible)]="displayDetailsDialog" [responsive]="true" showEffect="fade" [modal]="true" (onHide)="onDetailsDialogHide()">
+            <div class="ui-grid ui-grid-responsive ui-fluid" >
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="key">Код категории</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="key" [(ngModel)]="categoryKey" [disabled] = "true"/></div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="name">Название категории</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="name" [(ngModel)]="categoryName" [disabled] = "true"/></div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="enabled">Использовать</label></div>
+                    <div class="ui-grid-col-8">
+                        <p-checkbox id="enabled" [(ngModel)]="useSearch" (onChange)="onChangeSelectedCategory()" binary="true"></p-checkbox>
+                    </div>
+                </div>
+                <div class="ui-grid-col-12" style="height: 3em"></div>
+            </div>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-check" (click)="onDetailsDialogHide()" label="OK" [disabled]="!isAppsCategoriesChanged"></button>
+                </div>
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+            </p-footer>
+
+        </p-dialog>
+
+        <div [hidden]="hideProgress" class="ui-g-12 text-center">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
+    </div>
+</div>

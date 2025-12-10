@@ -1,0 +1,8 @@
+POST {{apiURL}}/sign-out
+Content-Type: application/json
+Authorization: {{authHeader}}
+Cookie: refreshToken=971a3a04%2Dbfed%2D400a%2D9e05%2D4d8087dc0fbe
+
+{
+  "session": "ALL"
+}

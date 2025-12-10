@@ -1,0 +1,182 @@
+{
+  "common": {
+    "logout": "Выйти",
+    "logout-all-devices": "Выйти из всех устройств",
+    "version": {
+      "client": "Клиентская версия: {{clientVersion}}",
+      "server": "Серверная версия: {{serverVersion}}",
+      "authServer": "Версия сервера авторизации: {{authServerVersion}}"
+    },
+    "menu-item": {
+      "settings": "Настройки",
+      "deleted-item": "Удалено",
+      "button": {
+        "new": "Добавить",
+        "update": "Обновить"
+      },
+      "tooltip": {
+        "delete": "Удалить",
+        "block": "Блокировать",
+        "edit": "Редактировать"
+      }
+    },
+    "dialog": {
+      "selected-label": " выбрано",
+      "empty-filter-message": "Нет подходящих результатов",
+      "button": "Сохранить"
+    },
+    "confirm-dialog": {
+      "button": {
+        "accept": "Да",
+        "reject": "Нет"
+      }
+    }
+  },
+  "login": {
+    "title": "Авторизация",
+    "button": "ВОЙТИ",
+    "restore-password": "Забыли пароль?",
+    "placeholder": {
+      "username": "Имя пользователя или email",
+      "password": "Пароль"
+    }
+  },
+  "left-menu": {
+    "menu-item": {
+      "role": {
+        "label": "Роли",
+        "table": {
+          "header": "Роли",
+          "name": "Роль",
+          "empty": "Роли не найдены"
+        }
+      },
+      "master-account": {
+        "label": "Мастер аккаунты",
+        "table": {
+          "header": "Мастер аккаунты",
+          "name": "Имя пользователя",
+          "empty": "Мастер аккаунты не найдены"
+        }
+      },
+      "account": {
+        "label": "Аккаунты",
+        "table": {
+          "header": "Аккаунты",
+          "name": "Имя пользователя",
+          "empty": "Аккаунты не найдены"
+        }
+      }
+    }
+  },
+  "dialog": {
+    "role": {
+      "title": {
+        "add": "Добавление роли",
+        "edit": "Редактирование роли"
+      },
+      "input": {
+        "label": {
+          "role": "Роль",
+          "authorities": "Права"
+        },
+        "placeholder": {
+          "role": "Введите название роли",
+          "authorities": "Выберите права"
+        }
+      }
+    },
+    "master-account": {
+      "title": {
+        "add": "Добавление аккаунта",
+        "edit": "Редактирование аккаунта"
+      },
+      "input": {
+        "label": {
+          "login": "Имя пользователя"
+        },
+        "placeholder": {
+          "login": "Введите имя пользоваателя",
+          "email": "Введите email"
+        }
+      }
+    },
+    "account": {
+      "title": {
+        "add": "Добавление аккаунта",
+        "edit": "Редактирование аккаунта"
+      },
+      "input": {
+        "label": {
+          "login": "Имя пользователя",
+          "role": "Роли"
+        },
+        "placeholder": {
+          "login": "Выберите имя пользователя",
+          "role": "Выберите роли"
+        }
+      }
+    },
+    "login": {
+      "title": "Восстановление пароля",
+      "text": "Введите email, который привязан к вашей учетной записи",
+      "button": "Отправить"
+    }
+  },
+  "confirm-dialog": {
+    "role": {
+      "delete": {
+        "title": "Удалить роль",
+        "text": "Вы уверены, что хотите удалить эту роль?"
+      }
+    },
+    "master-account": {
+      "delete": {
+        "title": "Удалить аккаунт",
+        "text": "Вы уверены, что хотите удалить этот аккаунт?"
+      },
+      "block": {
+        "title": "Блокировать аккаунт",
+        "text": "Вы уверены, что хотите заблокировать этот аккаунт?"
+      }
+    }
+  },
+  "right-menu": {
+    "menu-item": {
+      "menu-type": {
+        "label": "Вид меню",
+        "option": {
+          "static": "Обычный",
+          "overlay": "Скрытый",
+          "slim": "Иконки"
+        }
+      },
+      "color-scheme": {
+        "label": "Тема",
+        "option": {
+          "dark": "Темная",
+          "dim": "Синяя",
+          "light": "Светлая"
+        }
+      }
+    }
+  },
+  "error": {
+    "auth": "Неверное имя пользователя или пароль",
+    "field-required": "*Пустое поле",
+    "link": "Перейти на главную",
+    "access-denied": {
+      "title": "ДОСТУП ЗАПРЕЩЕН",
+      "text": "У вас нет необходимых разрешений"
+    },
+    "server": {
+      "title": "ОШИБКА",
+      "text": "Что-то пошло не так"
+    }
+  }
+}
+
+
+
+
+

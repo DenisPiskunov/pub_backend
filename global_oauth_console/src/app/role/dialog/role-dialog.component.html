@@ -1,0 +1,53 @@
+<div *ngIf="isVisible">
+    <p-dialog [header]="headerTitle" modal="modal" [(visible)]="isVisible"
+              (onHide)="onClose()" styleClass="p-fluid" [style]="{width: '400px'}">
+        <form (ngSubmit)="save(f)" #f="ngForm">
+            <div class="p-field">
+                <label translate for="roleName">dialog.role.input.label.role</label>
+                <input
+                        [(ngModel)]="role.name"
+                        name="roleName"
+                        id="roleName"
+                        type="text"
+                        pInputText
+                        maxlength="50"
+                        [placeholder]="'dialog.role.input.placeholder.role' | translate"
+                        aria-describedby="name-error"
+                        [ngClass]="{'ng-invalid ng-dirty': isControlInvalid(roleNameFC)}"
+                        required #roleNameFC="ngModel"
+                >
+                <small translate class="p-error" [hidden]="!isControlInvalid(roleNameFC)" id="name-error">
+                    error.field-required
+                </small>
+            </div>
+            <div class="p-field">
+                <label translate for="authorities">dialog.role.input.label.authorities</label>
+                <p-multiSelect [options]="authorities"
+                               optionValue="id"
+                               appendTo="body"
+                               name="authorities"
+                               id="authorities"
+                               [(ngModel)]="role.authoritiesIds"
+                               [emptyFilterMessage]="'common.dialog.empty-filter-message' | translate"
+                               (onChange)="setRightRoles($event)"
+                               [defaultLabel]="'dialog.role.input.placeholder.authorities' | translate"
+                               [selectedItemsLabel]="'{0}'+ selectedItemsLabel"
+                               optionLabel="name"
+                               class="multiselect-custom"
+                               aria-describedby="authorities-error"
+                               [ngClass]="{'ng-invalid ng-dirty': isControlInvalid(authoritiesFC)}"
+                               required #authoritiesFC="ngModel"
+
+                >
+                </p-multiSelect>
+                <small translate class="p-error" [hidden]="!isControlInvalid(authoritiesFC)" id="authorities-error">
+                    error.field-required
+                </small>
+            </div>
+        </form>
+        <ng-template pTemplate="footer">
+            <button pButton icon="pi pi-check" (click)="save(f)" [label]="'common.dialog.button' | translate"
+                    class="p-button-text"></button>
+        </ng-template>
+    </p-dialog>
+</div>

@@ -1,0 +1,4 @@
+GET {{apiURL}}/shutdown
+
+###
+GET {{shutdownURL}}/ktor/application/shutdown

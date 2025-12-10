@@ -1,0 +1,38 @@
+GET {{apiURL}}/m-accounts/b2ed3290-388e-4584-a64f-209c030a648b
+Authorization: {{authHeader}}
+
+###
+GET {{apiURL}}/m-accounts?limit=25&offset=0
+Authorization: {{authHeader}}
+
+###
+GET {{apiURL}}/m-accounts/enabled
+Authorization: {{authHeader}}
+
+###
+POST {{apiURL}}/m-accounts
+Authorization: {{authHeader}}
+Content-Type: application/json
+
+{
+  "login": "testLogin",
+  "email": "testLogin@mail.com"
+}
+
+###
+PUT {{apiURL}}/m-accounts/6261d681-6f61-470d-91d8-13d6db64a6e4
+Authorization: {{authHeader}}
+Content-Type: application/json
+
+{
+  "login": "alexandrchernyy",
+  "email": "alexandrchernyy@gmail.com"
+}
+
+###
+PUT {{apiURL}}/m-accounts/block/6261d681-6f61-470d-91d8-13d6db64a6e4
+Authorization: {{authHeader}}
+
+###
+DELETE {{apiURL}}/m-accounts/18a2d8d1-fbcc-4159-a831-f9668b3911b7
+Authorization: {{authHeader}}

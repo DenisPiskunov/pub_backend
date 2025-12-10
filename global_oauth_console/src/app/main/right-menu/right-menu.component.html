@@ -1,0 +1,45 @@
+<a style="cursor: pointer" id="layout-config-button" class="layout-config-button" (click)="onConfigButtonClick($event)">
+    <i class="pi pi-cog"></i>
+</a>
+<div class="layout-config" [ngClass]="{'layout-config-active': appMain.configActive}" (click)="appMain.onConfigClick($event)">
+    <div class="layout-config-menu-type">
+        <h5 translate>right-menu.menu-item.menu-type.label</h5>
+        <div class="p-field-radiobutton">
+            <p-radioButton name="menuMode" value="static" [(ngModel)]="app.menuMode" inputId="mode1"></p-radioButton>
+            <label translate for="mode1">right-menu.menu-item.menu-type.option.static</label>
+        </div>
+        <div class="p-field-radiobutton">
+            <p-radioButton name="menuMode" value="overlay" [(ngModel)]="app.menuMode" inputId="mode2"></p-radioButton>
+            <label translate for="mode2">right-menu.menu-item.menu-type.option.overlay</label>
+        </div>
+        <div class="p-field-radiobutton">
+            <p-radioButton name="menuMode" value="slim" [(ngModel)]="app.menuMode" inputId="mode3"></p-radioButton>
+            <label translate for="mode3">right-menu.menu-item.menu-type.option.slim</label>
+        </div>
+        <hr />
+    </div>
+
+
+    <h5 translate>right-menu.menu-item.color-scheme.label</h5>
+    <div class="p-field-radiobutton">
+        <p-radioButton name="colorScheme" value="dark" [(ngModel)]="app.colorScheme"
+                       inputId="theme1" (onClick)="changeColorScheme('dark')"
+        >
+        </p-radioButton>
+        <label translate for="theme1">right-menu.menu-item.color-scheme.option.dark</label>
+    </div>
+    <div class="p-field-radiobutton">
+        <p-radioButton name="colorScheme" value="dim" [(ngModel)]="app.colorScheme"
+                       inputId="theme2" (onClick)="changeColorScheme('dim')"
+        >
+        </p-radioButton>
+        <label translate for="theme2">right-menu.menu-item.color-scheme.option.dim</label>
+    </div>
+    <div class="p-field-radiobutton">
+        <p-radioButton name="colorScheme" value="light" [(ngModel)]="app.colorScheme"
+                       inputId="theme3" (onClick)="changeColorScheme('light')"
+        >
+        </p-radioButton>
+        <label translate for="theme3">right-menu.menu-item.color-scheme.option.light</label>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+GET {{apiURL}}/roles/2
+Authorization: {{authHeader}}
+
+###
+GET {{apiURL}}/roles?limit=25&offset=0
+Authorization: {{authHeader}}
+
+###
+GET {{apiURL}}/roles/enabled
+Authorization: {{authHeader}}
+
+###
+POST {{apiURL}}/roles
+Authorization: {{authHeader}}
+Content-Type: application/json
+
+{
+  "name": "ROLE_MANAGER_REMOVE_ME_PLEASE",
+  "authoritiesIds": [
+    1,
+    2,
+    3
+  ]
+}
+
+###
+PUT {{apiURL}}/roles/2
+Authorization: {{authHeader}}
+Content-Type: application/json
+
+{
+  "name": "ROLE_MANAGER_REMOVE_ME_PLEASE",
+  "authoritiesIds": [
+    1,
+    2
+  ]
+}
+
+###
+DELETE {{apiURL}}/roles/9
+Authorization: {{authHeader}}

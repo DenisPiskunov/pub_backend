@@ -1,0 +1,35 @@
+GET {{apiURL}}/accounts/b2ed3290-388e-4584-a64f-209c030a648b
+Authorization: {{authHeader}}
+
+###
+GET {{apiURL}}/accounts?limit=25&offset=0
+Authorization: {{authHeader}}
+
+###
+POST {{apiURL}}/accounts
+Authorization: {{authHeader}}
+Content-Type: application/json
+
+{
+  "uuid": "6261d681-6f61-470d-91d8-13d6db64a6e4",
+  "rolesIds": [
+    1
+  ]
+}
+
+###
+GET {{apiURL}}/accounts/authorities
+Authorization: {{authHeader}}
+
+###
+PUT {{apiURL}}/accounts
+Authorization: {{authHeader}}
+Content-Type: application/json
+
+{
+  "uuid": "b2ed3290-388e-4584-a64f-209c030a648b",
+  "rolesIds": [
+    1,
+    2
+  ]
+}

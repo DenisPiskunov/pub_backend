@@ -1,0 +1,149 @@
+<app-top-menu></app-top-menu>
+<div class="container-fluid">
+    <app-left-menu>Loading left-menu...</app-left-menu>
+    <div class="ui-md-offset-2">
+        <p-blockUI [blocked]="blockedDocument"></p-blockUI>
+        <div style="height: 1em" class="ui-g-12"></div>
+        <div class="ui-g-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h5>Список рассылки:</h5>
+                </div>
+                <div class="panel-body">
+                    <form class="form-mailing-editor" #mailingForm="ngForm" novalidate>
+                        <div class="ui-g-12">
+                            <p-chips name="gambling-keys" [(ngModel)]="mailList" placeholder="Добавить..."
+                                     (onAdd)="onAddEmail($event.value)"
+                                     (onRemove)="onRemoveEmail($event.value)"
+                                     addOnTab="true" addOnBlur="true"></p-chips>
+                            <div style="height: 1em"></div>
+                            <button pButton type="button" label="Сохранить изменения" icon="fa-check"
+                                    iconPos="right" (click)="onSaveChanges()" [disabled]="!mailListChanged"></button>
+                            <button pButton type="button" label="Отменить изменения" class="ui-button-secondary"
+                                    icon="fa-close"
+                                    iconPos="right"
+                                    (click)="onRevertChanges()" [disabled]="!mailListChanged"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--<div style="height: 3em" class="ui-g-12"></div>-->
+        <!--<div>-->
+            <!--<h5>Интервалы выполнения задач</h5>-->
+            <!--<div class="flex-cell-2">-->
+                <!--<div class="panel panel-default">-->
+                    <!--<div class="panel-heading">-->
+                        <!--<h5>Pinger (Runtime analytic)</h5>-->
+                    <!--</div>-->
+                    <!--<div class="panel-body">-->
+                        <!--<div class="flex-cell-3">-->
+                            <!--<h6>Дни:</h6>-->
+                            <!--<p-spinner size="5" [(ngModel)]="pingerDaysInterval" [min]="0" [max]="365"-->
+                                       <!--(onChange)="onPingerIntervalChanged()"></p-spinner>-->
+                        <!--</div>-->
+                        <!--<div class="flex-cell-3">-->
+                            <!--<h6>Часы:</h6>-->
+                            <!--<p-spinner size="5" [(ngModel)]="pingerHoursInteval" [min]="0" [max]="23"-->
+                                       <!--(onChange)="onPingerIntervalChanged()"></p-spinner>-->
+                        <!--</div>-->
+                        <!--<div class="flex-cell-3">-->
+                            <!--<h6>Минуты:</h6>-->
+                            <!--<p-spinner size="5" [(ngModel)]="pingerMinutesInterval" [min]="0" [max]="59"-->
+                                       <!--(onChange)="onPingerIntervalChanged()"></p-spinner>-->
+                        <!--</div>-->
+                        <!--<div class="ui-g-12" style="height: 1em"></div>-->
+                        <!--<button pButton type="button" label="Сохранить изменения" icon="fa-check" iconPos="right"-->
+                                <!--(click)="onSavePingerInterval()" [disabled]="!pingerIntervalChanged"></button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <!--<div class="flex-cell-2">-->
+            <!--<div class="panel panel-default">-->
+                <!--<div class="panel-heading">-->
+                    <!--<h5>Top store parser</h5>-->
+                <!--</div>-->
+                <!--<div class="panel-body">-->
+                    <!--<div class="flex-cell-3">-->
+                        <!--<h6>Дни:</h6>-->
+                        <!--<p-spinner size="5" [(ngModel)]="topParserDaysInterval" [min]="0" [max]="365"-->
+                                   <!--(onChange)="onTopParserIntervalChanged()"></p-spinner>-->
+                    <!--</div>-->
+                    <!--<div class="flex-cell-3">-->
+                        <!--<h6>Часы:</h6>-->
+                        <!--<p-spinner size="5" [(ngModel)]="topParserHoursInteval" [min]="0" [max]="23"-->
+                                   <!--(onChange)="onTopParserIntervalChanged()"></p-spinner>-->
+                    <!--</div>-->
+                    <!--<div class="flex-cell-3">-->
+                        <!--<h6>Минуты</h6>-->
+                        <!--<p-spinner size="5" [(ngModel)]="topParserMinutesInterval" [min]="0" [max]="59"-->
+                                   <!--(onChange)="onTopParserIntervalChanged()"></p-spinner>-->
+                    <!--</div>-->
+                    <!--<div class="ui-g-12" style="height: 1em"></div>-->
+                    <!--<button pButton type="button" label="Сохранить изменения" icon="fa-check" iconPos="right"-->
+                            <!--(click)="onSaveTopParserInterval()" [disabled]="!topParserIntervalChanged"></button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <!--<div class="flex-cell-2">-->
+            <!--<div class="panel panel-default">-->
+                <!--<div class="panel-heading">-->
+                    <!--<h5>Daily store analytic</h5>-->
+                <!--</div>-->
+                <!--<div class="panel-body">-->
+                    <!--<div class="flex-cell-3">-->
+                        <!--<h6>Дни:</h6>-->
+                        <!--<p-spinner size="5" [(ngModel)]="updaterDataDaysInterval" [min]="0" [max]="365"-->
+                                   <!--(onChange)="onUpdaterIntervalChanged()"></p-spinner>-->
+                    <!--</div>-->
+                    <!--<div class="flex-cell-3">-->
+                        <!--<h6>Часы:</h6>-->
+                        <!--<p-spinner size="5" [(ngModel)]="updaterDataHoursInteval" [min]="0" [max]="23"-->
+                                   <!--(onChange)="onUpdaterIntervalChanged()"></p-spinner>-->
+                    <!--</div>-->
+                    <!--<div class="flex-cell-3">-->
+                        <!--<h6>Минуты</h6>-->
+                        <!--<p-spinner size="5" [(ngModel)]="updaterDataMinutesInterval" [min]="0" [max]="59"-->
+                                   <!--(onChange)="onUpdaterIntervalChanged()"></p-spinner>-->
+                    <!--</div>-->
+                    <!--<div class="ui-g-12" style="height: 1em"></div>-->
+                    <!--<button pButton type="button" label="Сохранить изменения" icon="fa-check" iconPos="right"-->
+                            <!--(click)="onSaveUpdaterInterval()" [disabled]="!updaterIntervalChanged"></button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="ui-g-12">-->
+            <!--<h6>-->
+                <!--<b>* Pinger (Runtime analytic)</b> - проверяет наличие приложений из нашей базы в магазине приложений.-->
+                <!--Если приложение не найдено, то оно помечается, как удаленное.-->
+                <!--По окончании проверки отправляет письмо с результатами.-->
+            <!--</h6>-->
+            <!--<h6>-->
+                <!--<b>* Top store parser</b> - анализирует магазины приложений на наличие интересующих нас приложений по-->
+                <!--ключевым-->
+                <!--словам.-->
+                <!--Создает в нашей базе новые приложения. Получает описание приложения на русском языке, а также-->
+                <!--комментарии и-->
+                <!--скриншоты.-->
+                <!--По окончании проверки отправляет письмо с результатами.-->
+            <!--</h6>-->
+            <!--<h6>-->
+                <!--<b>* Daily store analytic</b> - проверяет наличие приложений из нашей базы в магазине приложений.-->
+                <!--Если приложение не найдено, то оно помечается, как удаленное.-->
+                <!--Получает описание приложения на всех доступных языках, а также комментарии и скриншоты.-->
+                <!--По окончании проверки отправляет письмо с результатами.-->
+            <!--</h6>-->
+        <!--</div>-->
+
+        <div [hidden]="hideProgress" class="ui-g-12 text-center">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
+    </div>
+</div>

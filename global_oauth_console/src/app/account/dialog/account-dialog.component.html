@@ -1,0 +1,62 @@
+<div *ngIf="isVisible">
+    <p-dialog [header]="headerTitle" modal="modal" [(visible)]="isVisible"
+              (onHide)="onClose()" styleClass="p-fluid" [style]="{width: '400px'}">
+        <form (ngSubmit)="save(f)" #f="ngForm">
+            <div class="p-field">
+                <label translate for="login">dialog.account.input.label.login</label>
+                <div *ngIf="!uuid">
+                    <p-dropdown
+                            id="login"
+                            name="login"
+                            [filter]="true"
+                            appendTo="body"
+                            [autoDisplayFirst]="false"
+                            [options]="masterAccounts"
+                            [(ngModel)]="account.uuid"
+                            [emptyFilterMessage]="'common.dialog.empty-filter-message' | translate"
+                            [placeholder]="'dialog.account.input.placeholder.login' | translate"
+                            optionLabel="login"
+                            optionValue="uuid"
+                            aria-describedby="login-error"
+                            [ngClass]="{'ng-invalid ng-dirty': isControlInvalid(loginFC)}"
+                            required #loginFC="ngModel"
+                    >
+                    </p-dropdown>
+                    <small translate class="p-error" [hidden]="!isControlInvalid(loginFC)" id="login-error">
+                        error.field-required
+                    </small>
+                </div>
+                <div *ngIf="uuid">
+                    <p style="font-size: 16px; font-weight: bold">{{account.login}}</p>
+                </div>
+
+            </div>
+            <div class="p-field">
+                <label translate for="authorities">dialog.account.input.label.role</label>
+                <p-multiSelect [options]="roles"
+                               appendTo="body"
+                               optionValue="id"
+                               name="authorities"
+                               id="authorities"
+                               [(ngModel)]="account.rolesIds"
+                               [emptyFilterMessage]="'common.dialog.empty-filter-message' | translate"
+                               [defaultLabel]="'dialog.account.input.placeholder.role' | translate"
+                               [selectedItemsLabel]="'{0}'+ selectedItemsLabel"
+                               optionLabel="name"
+                               class="multiselect-custom"
+                               aria-describedby="roles-error"
+                               [ngClass]="{'ng-invalid ng-dirty': isControlInvalid(rolesFC)}"
+                               required #rolesFC="ngModel"
+                >
+                </p-multiSelect>
+                <small translate class="p-error" [hidden]="!isControlInvalid(rolesFC)" id="roles-error">
+                    error.field-required
+                </small>
+            </div>
+        </form>
+        <ng-template pTemplate="footer">
+            <button pButton icon="pi pi-check" (click)="save(f)" [label]="'common.dialog.button' | translate"
+                    class="p-button-text"></button>
+        </ng-template>
+    </p-dialog>
+</div>

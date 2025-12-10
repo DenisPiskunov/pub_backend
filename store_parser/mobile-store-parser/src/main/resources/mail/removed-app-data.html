@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <style>td {
+        border: 1px solid black;
+    }
+
+    table, html, body, td, tr, img, td.nopadding {
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+        border: 1px solid black;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    td.subtitle {
+        text-align: center;
+        aling: center;
+        font-weight: bold;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+
+    td.center {
+        vertical-align: middle;
+    }
+
+    img.cover-image {
+        width: 175px;
+        height: 175px;
+        max-width: 175px;
+        max-height: 175px;
+    }
+
+    td.max-width {
+        max-width: 175px;
+        width: 175px;
+    }
+    </style>
+</head>
+
+<body>
+<table th:each="data : ${details}" cellpadding="0" cellspacing="0" style="margin-bottom: 20px; width: 100%">
+    <tr>
+        <td class="nopadding; max-width" style="width: 175px">
+            <img class="cover-image" style="width: 100%; max-width: 175px" th:src="${data.iconUrl}">
+        </td>
+
+        <td style="border-bottom: none; border-top:none;">
+            <h1 th:text="${data.appTitle}"></h1>
+            <a th:href="${data.appUrl}" th:text="${data.appUrl}"></a>
+            <h1 th:text="${data.state}" style="color:orangered;"></h1>
+            <h1 th:text="${data.keyword}"></h1>
+            <h1>Date added from top:</h1>
+            <h1 th:text="${data.creationDate}"></h1>
+        </td>
+    </tr>
+
+    <tr th:each="entry : ${data.descrToLangs}">
+        <td colspan="2" th:text="${entry.key}"></td>
+    </tr>
+</table>
+</body>
+</html>

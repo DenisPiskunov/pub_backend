@@ -1,0 +1,46 @@
+<div class="layout-topbar">
+    <div class="topbar-left">
+        <a tabindex="0" class="menu-button" (click)="appMain.onMenuButtonClick($event)">
+            <i class="pi pi-chevron-left"></i>
+        </a>
+        <span class="topbar-separator"></span>
+        <ng-template ngFor let-item let-last="last" [ngForOf]="items">
+            <span class="viewname" style="text-transform: uppercase">{{item.label}}</span>
+        </ng-template>
+    </div>
+
+    <div class="topbar-right">
+        <div class="topbar-menu">
+            <li class="profile-item" [ngClass]="{'active-menuitem fadeInDown': appMain.topbarUserMenuActive}">
+                <a href="#" (click)="appMain.onTopbarUserMenuButtonClick($event)" style="padding: 2px 11px">
+                    <i class="pi pi-user" style="padding-right: 15px; font-size: 1.2em"></i>
+                    <span class="profile-name" style="font-size: 1.1em;">{{login}}</span>
+                </a>
+                <ul class="profile-menu fade-in-up">
+                    <li>
+                        <p (click)="logout()">
+                            <i class="pi pi-power-off"></i>
+                            <span translate>common.logout</span>
+                        </p>
+                    </li>
+                    <li>
+                        <p (click)="logoutAllDevices()">
+                            <i class="pi pi-power-off"></i>
+                            <span translate>common.logout-all-devices</span>
+                        </p>
+                    </li>
+                </ul>
+            </li>
+            <p-dropdown
+                    [style]="{'margin-left': '10px'}"
+                    [autoDisplayFirst]="false"
+                    [options]="appMain.languages"
+                    [(ngModel)]="appMain.language"
+                    optionLabel="label"
+                    optionValue="value"
+                    (onChange)="appMain.onChangeLanguage()"
+            >
+            </p-dropdown>
+        </div>
+    </div>
+</div>

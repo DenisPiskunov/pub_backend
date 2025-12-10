@@ -1,0 +1,188 @@
+<app-top-menu></app-top-menu>
+<div class="container-fluid">
+    <div class="row">
+        <app-left-menu>Loading left-menu...</app-left-menu>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <p-dataGrid [value]="appList" [paginator]="true" [rows]=appsCountPerPage [rowsPerPageOptions]="[10,20,50,100]" (onPage)="onPage($event)">
+                <p-header>
+                    <h4>
+                        Список приложений для {{selectedPlatform}}.
+                    </h4>
+                    <h6> Всего приложений: [ {{appsTotalCount}} ] </h6>
+                </p-header>
+                <ng-template let-application pTemplate="item">
+                    <div style="padding: 3px; text-align: center; word-wrap: break-word;" class="ui-g-12 ui-md-3">
+                        <p-panel>
+                            <p-header>
+                                <div style="min-height: 3em;">
+                                    <h5>{{application.title}}</h5>
+                                </div>
+                            </p-header>
+                            <img src={{application.iconUrl}} width="120">
+                            <hr class="ui-widget-content" style="border-top:0">
+                            <div style="min-height: 3em;" class="dark"><a href="{{application.url}}" target="_blank">{{application.url}}</a></div>
+                            <div class="col-md-12" style="height: 1em;"></div>
+                            <div class="col-md-12">
+                                <div class="col-md-6 align-left nopadding-h">Категория:</div>
+                                <div class="col-md-6 align-left nopadding-h"><strong>{{application.category}}</strong></div>
+                                <div class="col-md-6 align-left nopadding-h">Дата добавления:</div>
+                                <div class="col-md-6 align-left nopadding-h"><strong>{{application.creationDate}}</strong></div>
+                                <div class="col-md-12" *ngIf="application.deletedDate">
+                                    <div class="col-md-6 align-left nopadding-h" style="color: darkred">Дата удаления:</div>
+                                    <div class="col-md-6 align-left nopadding-h" style="color: darkred"><strong>{{application.deletedDate}}</strong></div>
+                                </div>
+
+                            </div>
+
+                            <div class="align-left"></div>
+                            <hr class="ui-widget-content" style="border-top:0">
+                            <button pButton type="button" (click)="selectApp(application)" label="Подробнее"
+                                    icon="fa-search" iconPos="right">
+                            </button>
+                        </p-panel>
+                    </div>
+                </ng-template>
+            </p-dataGrid>
+        </div>
+    </div>
+</div>
+
+<p-sidebar [(visible)]="displayDialog" [fullScreen]="true" [blockScroll]="true"  [baseZIndex]="10000" (onHide)=onDialogHide() class="ui-sidebar-close-dark">
+    <div class="ui-grid-col-12" style="text-align: center; font-weight: bold">
+        <button pButton type="button" (click)="onDialogHide()" label="Закрыть"></button>
+        <div class="col-md-12" style="height: 1.5em;"></div>
+    </div>
+    <div class="ui-grid ui-grid-pad" *ngIf="selectedApp"
+         style="font-size:14px;text-align:left;padding:20px;height: 100%">
+        <div class="dark" style="height: 25%">
+            <div class="flex-cell-4">
+                <div class="ui-grid-col-12" style="text-align:center"><img src="{{selectedApp.iconUrl}}" class="appImageLarge">
+                </div>
+            </div>
+            <div class="flex-cell-5">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2" style="text-align: left">ID/Package:</div>
+                    <div class="ui-grid-col-10" style="text-align: left">{{selectedApp.appId}}</div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2" style="text-align: left">Название:</div>
+                    <div class="ui-grid-col-10" style="text-align: left">{{selectedApp.title}}</div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2" style="text-align: left">Статус:</div>
+                    <div class="ui-grid-col-10" style="text-align: left">{{selectedApp.status}}</div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2" style="text-align: left">Url:</div>
+                    <div class="ui-grid-col-10" style="text-align: left"><a href="{{selectedApp.url}}" target="_blank">{{selectedApp.url}}</a>
+                    </div>
+                </div>
+                <div *ngIf="selectedApp.keywords" class="ui-grid-row">
+                    <div class="ui-grid-col-2" style="text-align: left">Ключевые слова:</div>
+                    <div class="ui-grid-col-10" style="text-align: left">{{selectedApp.keywords}}</div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2" style="text-align: left">Категория:</div>
+                    <div class="ui-grid-col-10" style="text-align: left">{{selectedApp.category}}</div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2" style="text-align: left">Дата добавления:</div>
+                    <div class="ui-grid-col-10" style="text-align: left">{{selectedApp.creationDate}}</div>
+                </div>
+                <div *ngIf="selectedApp.deletedDate" class="ui-grid-row">
+                    <div class="ui-grid-col-2" style="text-align: left">Дата удаления:</div>
+                    <div class="ui-grid-col-10" style="text-align: left">{{selectedApp.deletedDate}}</div>
+                </div>
+                <div *ngIf="selectedApp.deletedDate" class="ui-grid-row">
+                    <div *ngIf="hasAdminRole()" class="ui-grid-col-12">
+                        <div class="col-md-12" style="height: 1.5em;"></div>
+                        <button pButton type="button" (click)="showConfirmRestoreAppDialog()" label="Восстановить"></button>
+                        <div class="col-md-12" style="height: 1.5em;"></div>
+                    </div>
+                    <div class="col-md-12" style="height: 1.5em;"></div>
+                </div>
+                <div *ngIf="!selectedApp.deletedDate" class="ui-grid-row">
+                    <div *ngIf="hasAdminRole()" class="ui-grid-col-12">
+                        <div class="col-md-12" style="height: 1.5em;"></div>
+                        <button pButton type="button" (click)="showConfirmMarkAsInvalidAppDialog()" label="Удалить"></button>
+                        <div class="col-md-12" style="height: 1.5em;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="div-75x100">
+            <p-tabView>
+                <p-tabPanel header="Описание">
+                    <div style="margin-bottom: 2em">
+                        <p-dataTable [value]="selectedAppDescriptions" sortField="languages" rowGroupMode="subheader"
+                                     groupField="languages" expandableRowGroups="true"
+                                     [sortableRowGroup]="false" [rows]="5" [paginator]="true" [pageLinks]="5">
+                            <ng-template pTemplate="rowgroupheader" let-rowData>{{rowData['languages']}}</ng-template>
+                            <p-column field="description">
+                            </p-column>
+                        </p-dataTable>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Скриншоты" *ngIf="selectedAppScreenshots">
+                    <div style="margin-bottom: 2em">
+                        <p-dataList [value]="selectedAppScreenshots" [paginator]="true" [rows]="1">
+                            <ng-template let-screenshot pTemplate="item">
+                                <div class="ui-g">
+                                    <div class="ui-g-12">
+                                        <div *ngIf="selectedAppScreenshots.length > 0" style="text-align: center;">
+                                            <img src="{{screenshot}}" style="max-height: 500px">
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-dataList>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Отзывы" *ngIf="selectedAppReviews && selectedAppReviews.length>0">
+                    <div style="margin-bottom: 2em">
+                        <p-dataList [value]="selectedAppReviews" [paginator]="true" [rows]="10">
+                            <ng-template let-review pTemplate="item">
+                                <div class="ui-g">
+                                    <div class="ui-g-12 ui-md-9">
+                                        {{review}}
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-dataList>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+
+        <p-dialog [(visible)]="displayRestoreConfirmDialog" [responsive]="true" showEffect="fade" [modal]="true" (onHide)="hideConfirmRestoreAppDialog()">
+            <div class="ui-grid ui-grid-responsive ui-fluid" >
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+                    Восстановить удаленное приложение?
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+            </div>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-check" (click)="restoreApp()" label="Да"></button>
+                    <button type="button" pButton icon="fa-times" (click)="hideConfirmRestoreAppDialog()" label="Нет"></button>
+                </div>
+            </p-footer>
+        </p-dialog>
+
+        <p-dialog [(visible)]="displayDeleteConfirmDialog" [responsive]="true" showEffect="fade" [modal]="true" (onHide)="hideConfirmMarkAsInvalidAppDialog()">
+            <div class="ui-grid ui-grid-responsive ui-fluid" >
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+                    Удалить приложение?
+                <div class="ui-grid-col-12" style="height: 0.5em"></div>
+            </div>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-check" (click)="markAsInvalidApp()" label="Да"></button>
+                    <button type="button" pButton icon="fa-times" (click)="hideConfirmMarkAsInvalidAppDialog()" label="Нет"></button>
+                </div>
+            </p-footer>
+        </p-dialog>
+
+
+    </div>
+</p-sidebar>

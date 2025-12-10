@@ -1,0 +1,88 @@
+2022-05-05 18:42:14,949 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=USD&to=RUB
+2022-05-05 18:42:14,978 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:42:16,880 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:42:16,884 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:42:17,667 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=EUR&to=RUB
+2022-05-05 18:42:17,685 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:42:18,488 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:42:18,494 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:42:19,518 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=CAD&to=RUB
+2022-05-05 18:42:19,519 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:42:20,046 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:42:20,051 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:42:20,605 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=AUD&to=RUB
+2022-05-05 18:42:20,608 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:42:20,888 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:42:20,890 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:42:21,813 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=BTC&to=RUB
+2022-05-05 18:42:21,814 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:42:22,351 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:42:22,354 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:42:23,181 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=INR&to=RUB
+2022-05-05 18:42:23,184 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:42:24,104 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:42:24,105 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:42:25,185 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=IDR&to=RUB
+2022-05-05 18:42:25,188 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:42:25,751 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:42:25,752 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:42:27,074 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=NZD&to=RUB
+2022-05-05 18:42:27,075 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:42:27,374 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:42:27,375 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:42:28,217 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=PHP&to=RUB
+2022-05-05 18:42:28,218 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:42:28,744 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:42:28,748 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:42:29,337 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> USD -> 64.976795 RUB
+2022-05-05 18:42:29,338 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> EUR -> 68.647988 RUB
+2022-05-05 18:42:29,338 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> CAD -> 50.893337 RUB
+2022-05-05 18:42:29,338 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> AUD -> 46.786493 RUB
+2022-05-05 18:42:29,338 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> INR -> 0.851425 RUB
+2022-05-05 18:42:29,338 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> IDR -> 0.004502 RUB
+2022-05-05 18:42:29,339 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> NZD -> 42.190192 RUB
+2022-05-05 18:42:29,339 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> PHP -> 1.238688 RUB
+2022-05-05 18:43:36,187 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=USD&to=RUB
+2022-05-05 18:43:36,198 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:43:37,697 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:43:37,701 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:43:38,305 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=EUR&to=RUB
+2022-05-05 18:43:38,306 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:43:38,848 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:43:38,851 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:43:39,240 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=CAD&to=RUB
+2022-05-05 18:43:39,241 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:43:39,884 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:43:39,888 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:43:40,136 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=AUD&to=RUB
+2022-05-05 18:43:40,137 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:43:40,702 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:43:40,712 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:43:41,249 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=BTC&to=RUB
+2022-05-05 18:43:41,250 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:43:41,831 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:43:41,834 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:43:42,880 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=INR&to=RUB
+2022-05-05 18:43:42,881 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:43:43,390 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:43:43,391 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:43:45,242 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=IDR&to=RUB
+2022-05-05 18:43:45,243 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:43:46,279 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:43:46,287 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:43:47,248 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=NZD&to=RUB
+2022-05-05 18:43:47,249 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:43:47,870 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:43:47,873 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:43:48,828 DEBUG org.springframework.core.log.CompositeLog [main] HTTP GET https://www.x-rates.com/calculator/?amount=1&from=PHP&to=RUB
+2022-05-05 18:43:48,829 DEBUG org.springframework.core.log.CompositeLog [main] Accept=[text/plain, application/json, application/*+json, */*]
+2022-05-05 18:43:49,714 DEBUG org.springframework.core.log.CompositeLog [main] Response 200 OK
+2022-05-05 18:43:49,717 DEBUG org.springframework.core.log.CompositeLog [main] Reading to [java.lang.String] as "text/html;charset=UTF-8"
+2022-05-05 18:43:50,370 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> USD -> 65.818379 RUB
+2022-05-05 18:43:50,371 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> EUR -> 69.526728 RUB
+2022-05-05 18:43:50,371 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> CAD -> 51.55043 RUB
+2022-05-05 18:43:50,371 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> AUD -> 47.390089 RUB
+2022-05-05 18:43:50,371 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> INR -> 0.862399 RUB
+2022-05-05 18:43:50,371 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> IDR -> 0.00456 RUB
+2022-05-05 18:43:50,371 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> NZD -> 42.728098 RUB
+2022-05-05 18:43:50,371 DEBUG ru.mint.parser.exchange.MainKt [main] ==>> PHP -> 1.254258 RUB

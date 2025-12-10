@@ -1,0 +1,49 @@
+<div *ngIf="isVisible">
+    <p-dialog [header]="headerTitle" modal="modal" [(visible)]="isVisible"
+              (onHide)="onClose()" styleClass="p-fluid" [style]="{width: '400px'}">
+        <form (ngSubmit)="save(f)" #f="ngForm">
+            <div class="p-field">
+                <label translate for="login">dialog.master-account.input.label.login</label>
+                <input
+                        [(ngModel)]="account.login"
+                        name="login"
+                        id="login"
+                        type="text"
+                        pInputText
+                        upperLatinAndCyrillicRestrictInput
+                        maxlength="20"
+                        [placeholder]="'dialog.master-account.input.placeholder.login' | translate"
+                        aria-describedby="login-error"
+                        [ngClass]="{'ng-invalid ng-dirty': isControlInvalid(loginFC)}"
+                        required #loginFC="ngModel"
+                >
+                <small translate class="p-error" [hidden]="!isControlInvalid(loginFC)" id="login-error">
+                    error.field-required
+                </small>
+            </div>
+            <div class="p-field">
+                <label for="email">Email</label>
+                <input
+                        [(ngModel)]="account.email"
+                        name="email"
+                        id="email"
+                        type="text"
+                        pInputText
+                        maxlength="30"
+                        [placeholder]="'dialog.master-account.input.placeholder.email' | translate"
+                        aria-describedby="email-error"
+                        [ngClass]="{'ng-invalid ng-dirty': isControlInvalid(emailFC)}"
+                        required #emailFC="ngModel"
+                >
+                <small translate class="p-error" [hidden]="!isControlInvalid(emailFC)" id="email-error">
+                    error.field-required
+                </small>
+            </div>
+        </form>
+        <ng-template pTemplate="footer">
+            <button pButton icon="pi pi-check" (click)="save(f)" [label]="'common.dialog.button' | translate"
+                    class="p-button-text"></button>
+        </ng-template>
+    </p-dialog>
+</div>
+

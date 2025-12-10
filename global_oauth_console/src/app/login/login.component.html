@@ -1,0 +1,59 @@
+<div class="login-body">
+    <div class="login-wrapper">
+        <p-dropdown
+            class="login-language"
+            [autoDisplayFirst]="false"
+            [options]="languages"
+            [(ngModel)]="language"
+            optionLabel="label"
+            optionValue="value"
+            (onChange)="onChangeLanguage()">
+        </p-dropdown>
+        <div class="login-panel">
+            <form class="login-form" #f="ngForm" (ngSubmit)="onLogin(f)">
+                <h2 translate>login.title</h2>
+                <div class="p-field">
+                    <input
+                        pInputText
+                        CyrillicRestrictInput
+                        name="login"
+                        id="login"
+                        [(ngModel)]="login"
+                        [ngClass]="{'ng-invalid ng-dirty': isControlInvalid(loginFC)}"
+                        aria-describedby="login-error"
+                        [placeholder]="'login.placeholder.username' | translate"
+                        required #loginFC="ngModel">
+                    <small translate class="p-error" [hidden]="!isControlInvalid(loginFC)" id="login-error">
+                        error.field-required
+                    </small>
+                </div>
+                <div class="p-field" style="width: 100%">
+                    <input
+                        pInputText
+                        type="password"
+                        name="password"
+                        id="password"
+                        [(ngModel)]="password"
+                        [ngClass]="{'ng-invalid ng-dirty': isControlInvalid(passwordFC)}"
+                        aria-describedby="password-error"
+                        [placeholder]="'login.placeholder.password' | translate"
+                        required #passwordFC="ngModel">
+                    <small translate class="p-error" [hidden]="!isControlInvalid(passwordFC)" id="password-error">
+                        error.field-required
+                    </small>
+                </div>
+
+                <p-message class="errorMessage" id="errorMessage" severity="error" *ngIf="errorAuth"
+                           [text]="'error.auth' | translate"></p-message>
+                <button icon="pi" pButton [label]="'login.button' | translate"></button>
+                <a translate class="login-restore" (click)="restorePassword()">login.restore-password</a>
+            </form>
+            <app-footer style="width: 100%"></app-footer>
+        </div>
+    </div>
+</div>
+<p-blockUI [blocked]="blockedDocument">
+    <p-progressSpinner class="login-loader" [style]="{width: '60px', height: '60px'}" strokeWidth="4"></p-progressSpinner>
+</p-blockUI>
+<app-restore-dialog></app-restore-dialog>
+

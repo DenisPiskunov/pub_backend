@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!--appender for console-->
+	<appender name="system.out" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/${catalina.home}/logs/mobile-store-parser-system.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>/${catalina.home}/logs/mobile-store-parser-system.log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<!-- each file should be at most 100MB, keep 30 days worth of history, but at most 3GB -->
+			<maxFileSize>100MB</maxFileSize>
+			<maxHistory>30</maxHistory>
+			<totalSizeCap>3GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!--appender for Spring framework-->
+	<appender name="spring.out" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/${catalina.home}/logs/mobile-store-parser-spring.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${catalina.home}/logs/mobile-store-parser-spring-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<!-- each file should be at most 100MB, keep 30 days worth of history, but at most 3GB -->
+			<maxFileSize>100MB</maxFileSize>
+			<maxHistory>30</maxHistory>
+			<totalSizeCap>3GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!--appender for "mobile-store-parser" application-->
+	<appender name="mobile.store.parser.app" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/${catalina.home}/logs/mobile-store-parser-app.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${catalina.home}/logs/mobile-store-parser-app-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<!-- each file should be at most 100MB, keep 30 days worth of history, but at most 3GB -->
+			<maxFileSize>100MB</maxFileSize>
+			<maxHistory>30</maxHistory>
+			<totalSizeCap>3GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework" level="debug" additivity="false">
+		<appender-ref ref="spring.out" />
+	</logger>
+
+	<logger name="ru.mint.mobile.store.parser" level="debug" additivity="false">
+		<appender-ref ref="mobile.store.parser.app" />
+	</logger>
+
+	<root level="debug">
+		<appender-ref ref="system.out" />
+	</root>
+
+</configuration>

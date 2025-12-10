@@ -1,0 +1,6 @@
+{
+    "dbUrl": "jdbc:postgresql://localhost:5432/farm-server",
+    "dbUser": "postgres",
+    "dbPassword": "123456",
+    "baseDir": "./database"
+}

@@ -1,0 +1,39 @@
+.errorMessage {
+    margin-bottom: 20px;
+    max-width: 310px;
+    width: 100%;
+}
+
+.p-field {
+    width: 100%;
+    max-width: 310px;
+    text-align: left;
+
+    input {
+        width: 100%;
+    }
+}
+
+.login-restore {
+    margin-top: 7px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.login-language {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 17px;
+    padding-right: 8%;
+    z-index: 3;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 25px;
+    }
+}
+

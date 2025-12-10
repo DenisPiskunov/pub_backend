@@ -1,0 +1,99 @@
+group 'ru.mint'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.2.31'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'war'
+apply plugin: 'kotlin-spring'
+apply plugin: "kotlin-jpa"
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+    maven {
+        url 'https://repo.spring.io/libs-snapshot'
+    }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+configurations.all {
+//DO NOT REMOVE !!! Without this exclusion on some OS *.log files will be not created
+    exclude group: 'org.slf4j', module: 'slf4j-simple'
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+// web
+    compile 'org.springframework:spring-webmvc:4.3.4.RELEASE'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+// db interaction
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.11.1.RELEASE'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.2.8.Final'
+    compile 'org.postgresql:postgresql:9.4-1200-jdbc41'
+// logging libraries
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+    compile 'org.slf4j:jcl-over-slf4j:1.7.20'
+
+//    used by spring
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.8.7"
+//   libraries for validation
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.3.3.Final'
+
+//    https://github.com/jhy/jsoup sources
+    compile 'org.jsoup:jsoup:1.10.3'
+
+    compile group: 'org.springframework', name: 'spring-context-support', version: '4.3.7.RELEASE'
+    compile group: 'javax.mail', name: 'mail', version: '1.4.7'
+
+    compile group: 'org.thymeleaf', name: 'thymeleaf', version: '3.0.8.RELEASE'
+    compile group: 'org.thymeleaf', name: 'thymeleaf-spring4', version: '3.0.8.RELEASE'
+
+    compile group: 'ru.mint', name: 'luminati-support', version: '1.0-SNAPSHOT'
+
+    //coroutines for kotlin
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.19.2"
+
+    //Klaxon is a lightweight library to parse JSON in Kotlin
+    compile 'com.beust:klaxon:0.30'
+
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-web
+    compile group: 'org.springframework.security', name: 'spring-security-web', version: '4.2.3.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-config
+    compile group: 'org.springframework.security', name: 'spring-security-config', version: '4.2.3.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.2.3.RELEASE'
+
+
+}

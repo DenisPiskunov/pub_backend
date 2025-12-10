@@ -1,0 +1,79 @@
+<nav class="nav navbar-nav sidebar navbar-collapse" role="navigation">
+    <div>
+        <a href="#android" data-toggle="collapse" aria-expanded="true">
+            <img src="assets/images/icons/android-logo-gray.svg" width="14" style="margin-right: 1em">
+            <span>Android</span>
+            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+        </a>
+        <div class="panel-body">
+            <ul app-submenu class="nav nav-pills nav-stacked collapse" id="android">
+                <li>
+                    <a routerLink="/dashboard" (click)="setPlatformParams('Android', true)">Активные</a>
+                </li>
+                <li>
+                    <a routerLink="/dashboard" (click)="setPlatformParams('Android', false)">Удаленные</a>
+                </li>
+                <li *ngIf="hasAdminRole()">
+                    <a routerLink="/manual-adding">Добавление</a>
+                </li>
+
+                <li>
+                    <a routerLink="/android-market-data">Аналитика</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <a href="#ios" data-toggle="collapse" aria-expanded="true">
+            <img src="assets/images/icons/apple-logo-gray.svg" width="14" style="margin-right: 1em">
+            <span>iOS</span>
+            <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+        <div class="panel-body">
+            <ul class="nav nav-pills nav-stacked collapse" id="ios">
+                <li>
+                    <a routerLink="/dashboard" (click)="setPlatformParams('iOS', true)">Активные</a>
+                </li>
+                <li>
+                    <a routerLink="/dashboard" (click)="setPlatformParams('iOS', false)">Удаленные</a>
+                </li>
+                <li *ngIf="hasAdminRole()">
+                    <a routerLink="/manual-adding">Добавление</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <div class="nav-divider"></div>
+        <a href="#statistics" data-toggle="collapse" aria-expanded="true">
+            <img src="assets/images/icons/analytics.png" width="14" style="margin-right: 1em">
+            <span>Статистика</span>
+            <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+        <div class="panel-body">
+            <ul class="nav nav-pills nav-stacked collapse" id="statistics">
+                <!--<li><a routerLink="/apps-statistic">Удаленные приложения</a></li>-->
+                <li><a routerLink="/apps-statistic-v2">Статистика по приложениям</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div *ngIf="hasAdminRole()">
+        <div class="nav-divider"></div>
+        <a href="#settings" data-toggle="collapse" aria-expanded="true">
+            <img src="assets/images/icons/settings.png" width="14" style="margin-right: 1em">
+            <span>Настройки</span>
+            <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+        <div class="panel-body">
+            <ul class="nav nav-pills nav-stacked collapse" id="settings">
+                <li><a routerLink="/keywords-editor">Ключевые слова</a></li>
+                <li><a routerLink="/categories-editor">Категории приложений</a></li>
+                <li><a routerLink="/mailingsetting">Список рассылки</a></li>
+                <li><a routerLink="/task-manager">Настройки заданий</a></li>
+                <li><a routerLink="/users">Пользователи</a></li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+

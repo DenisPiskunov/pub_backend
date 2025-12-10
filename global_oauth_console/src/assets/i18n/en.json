@@ -1,0 +1,177 @@
+{
+  "common": {
+    "logout": "Sign out",
+    "logout-all-devices": "Sign out of all devices",
+    "version": {
+      "client": "Client version: {{clientVersion}}",
+      "server": "Server version: {{serverVersion}}",
+      "authServer": "Auth server version: {{authServerVersion}}"
+    },
+    "menu-item": {
+      "settings": "Settings",
+      "deleted-item": "Deleted",
+      "button": {
+        "new": "New",
+        "update": "Update"
+      },
+      "tooltip": {
+        "delete": "Delete",
+        "block": "Block",
+        "edit": "Edit"
+      }
+    },
+    "dialog": {
+      "selected-label": " items selected",
+      "empty-filter-message": "No results found",
+      "button": "Save"
+    },
+    "confirm-dialog": {
+      "button": {
+        "accept": "Yes",
+        "reject": "No"
+      }
+    }
+  },
+  "login": {
+    "title": "Login",
+    "button": "LOG IN",
+    "restore-password": "Forgot password?",
+    "placeholder": {
+      "username": "Login or email",
+      "password": "Password"
+    }
+  },
+  "left-menu": {
+    "menu-item": {
+      "role": {
+        "label": "Roles",
+        "table": {
+          "header": "Roles",
+          "name": "Role",
+          "empty": "No roles found"
+        }
+      },
+      "master-account": {
+        "label": "Master accounts",
+        "table": {
+          "header": "Master accounts",
+          "name": "Login",
+          "empty": "No master accounts found"
+        }
+      },
+      "account": {
+        "label": "Accounts",
+        "table": {
+          "header": "Accounts",
+          "name": "Login",
+          "empty": "No accounts found"
+        }
+      }
+    }
+  },
+  "dialog": {
+    "role": {
+      "title": {
+        "add": "Adding role",
+        "edit": "Editing role"
+      },
+      "input": {
+        "label": {
+          "role": "Role",
+          "authorities": "Authorities"
+        },
+        "placeholder": {
+          "role": "Enter role name",
+          "authorities": "Select authorities"
+        }
+      }
+    },
+    "master-account": {
+      "title": {
+        "add": "Adding account",
+        "edit": "Editing account"
+      },
+      "input": {
+        "label": {
+          "login": "Login"
+        },
+        "placeholder": {
+          "login": "Enter login",
+          "email": "Enter email"
+        }
+      }
+    },
+    "account": {
+      "title": {
+        "add": "Adding account",
+        "edit": "Editing account"
+      },
+      "input": {
+        "label": {
+          "login": "Login",
+          "role": "Roles"
+        },
+        "placeholder": {
+          "login": "Select login",
+          "role": "Select roles"
+        }
+      }
+    },
+    "login": {
+      "title": "Restore",
+      "text": "Please enter the email that you used to sign in",
+      "button": "Send"
+    }
+  },
+  "confirm-dialog": {
+    "role": {
+      "delete": {
+        "title": "Delete role",
+        "text": "Are you sure to delete this role?"
+      }
+    },
+    "master-account": {
+      "delete": {
+        "title": "Delete account",
+        "text": "Are you sure to delete this account?"
+      },
+      "block": {
+        "title": "Block account",
+        "text": "Are you sure to block this account?"
+      }
+    }
+  },
+  "right-menu": {
+    "menu-item": {
+      "menu-type": {
+        "label": "Menu Type",
+        "option": {
+          "static": "Static",
+          "overlay": "Overlay",
+          "slim": "Slim"
+        }
+      },
+      "color-scheme": {
+        "label": "Color Scheme",
+        "option": {
+          "dark": "Dark",
+          "dim": "Dim",
+          "light": "Light"
+        }
+      }
+    }
+  },
+  "error": {
+    "auth": "Incorrect username or password",
+    "field-required": "*Field is required",
+    "link": "Go to Dashboard",
+    "access-denied": {
+      "title": "ACCESS DENIED",
+      "text": "You do not have the necessary permissions"
+    },
+    "server": {
+      "title": "ERROR",
+      "text": "Something went wrong"
+    }
+  }
+}

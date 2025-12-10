@@ -1,0 +1,56 @@
+<div class="p-grid">
+    <div class="card p-fluid" style="width: 100%">
+        <div class="p-col-12">
+            <p-table [value]="accounts" [paginator]="true" [rows]="10"
+                     [rowsPerPageOptions]="[10,15,25,50,100]" [lazy]="true"
+                     (onLazyLoad)="loadAccounts($event)"
+                     [lazyLoadOnInit]="false" [totalRecords]="totalCount"
+                     styleClass="p-datatable-customers p-datatable-gridlines p-datatable-striped p-datatable-sm">
+                <ng-template pTemplate="caption">
+                    <div translate class="p-d-flex p-jc-md-between table-header">
+                        left-menu.menu-item.account.table.header
+                        <div class="table-btn">
+                            <button *ngIf="uiElementAccessDecisionManager.hasAccessToCreate()" pButton
+                                    (click)="createAccount()" class="p-button-success"
+                                    [label]="'common.menu-item.button.new' | translate" icon="pi pi-plus"></button>
+                            <button pButton (click)="paginate()" [label]="'common.menu-item.button.update' | translate" icon="pi pi-refresh"></button>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 10em">Uuid</th>
+                        <th translate style="width: 10em">left-menu.menu-item.account.table.name</th>
+                        <th translate style="width: 5em">common.menu-item.settings</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-account>
+                    <tr [pSelectableRow]="account">
+                        <td>
+                            <span class="p-column-title">Uuid</span>
+                            <div>{{account.uuid}}</div>
+                        </td>
+                        <td>
+                            <span translate class="p-column-title">left-menu.menu-item.account.table.name</span>
+                            <div>{{account.login}}</div>
+                        </td>
+                        <td>
+                            <span translate class="p-column-title">common.menu-item.settings</span>
+                            <button *ngIf="uiElementAccessDecisionManager.hasAccessToEdit()" pButton
+                                    (click)="editAccount(account.uuid)" icon="pi pi-pencil"
+                                    class="p-mr-2 p-mb-2" [pTooltip]="'common.menu-item.tooltip.edit' | translate"
+                                    tooltipPosition="bottom"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td translate colspan="3">left-menu.menu-item.account.table.empty</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+<app-popup-account (afterSave)="afterSave()"></app-popup-account>
