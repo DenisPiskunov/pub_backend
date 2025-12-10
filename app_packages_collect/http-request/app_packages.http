@@ -1,0 +1,8 @@
+###
+POST {{apiURL}}/api/save-packages
+Content-Type: application/json
+
+{
+  "deviceModel": "ASUS ZenPhone5",
+  "installedPackages": "com.facebook.android|com.vk|com.ok"
+}

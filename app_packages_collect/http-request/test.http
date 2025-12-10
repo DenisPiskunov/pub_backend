@@ -1,0 +1,8 @@
+GET {{apiURL}}//ktor/application/shutdown
+Accept: application/json
+
+###
+GET {{apiURL}}/api/ping
+
+###
+
